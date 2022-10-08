@@ -1,3 +1,55 @@
+
+/* ELEMENT SELECTORS */
+:root{
+  --color1: #F4F4F2;
+  --color2: #E8E8E8;
+  --color3: #2f4a81;
+  --color4: #9BA4B4;
+  --color5: #222831;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
-  background-color: black;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 80px auto 35px;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color1);
+  background-color: var(--color3);
+  box-shadow: 0 4px 6px -2px var(--color5);
+  z-index: 1;
+}
+
+main{
+  display: flex;
+}
+
+footer{
+  background-color: var(--color4);
+}
+
+/* CLASS SELECTORS */
+
+
+/* ID SELECTORS */
+#left-panel{
+  position: relative;
+  background-color: var(--color2);
+  width: 350px;
+}
+
+
+#right-panel{
+  background-color: var(--color1);
+  flex: 1;
 }
