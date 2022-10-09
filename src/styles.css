@@ -1,11 +1,14 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* ELEMENT SELECTORS */
 :root{
-  --color1: #F4F4F2;
-  --color2: #E8E8E8;
-  --color3: #2f4a81;
+  --color1: #F1F6F9;
+  --color2: #14274E;
+  --color3: #394867;
   --color4: #9BA4B4;
   --color5: #222831;
+  --box-shadow: rgba(0, 0, 0, 0.24);
 }
 
 *{
@@ -18,6 +21,7 @@ body{
   display: grid;
   height: 100vh;
   grid-template-rows: 80px auto 35px;
+  font-family: 'Poppins', sans-serif;
 }
 
 header{
@@ -25,31 +29,97 @@ header{
   align-items: center;
   justify-content: center;
   color: var(--color1);
-  background-color: var(--color3);
-  box-shadow: 0 4px 6px -2px var(--color5);
+  background-color: var(--color2);
+  box-shadow: 0 4px 6px -2px var(--box-shadow);
   z-index: 1;
 }
 
 main{
   display: flex;
+  background-color: var(--color4);
+  gap: 1rem;
+  padding: 1rem;
 }
 
 footer{
-  background-color: var(--color4);
+  background-color: var(--color3);
 }
 
 /* CLASS SELECTORS */
+.left-rows{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
 
+#addProject:hover,
+.left-rows:hover{
+  background-color: var(--color3);
+  color: var(--color1);
 
-/* ID SELECTORS */
-#left-panel{
-  position: relative;
-  background-color: var(--color2);
-  width: 350px;
+}
+
+.plus{
+  border-radius: 9999px;
+  background-color: var(--color3);
+  color: var(--color1);
+  padding: 0.1rem 0.2rem;
+  transition: 0.5s;
 }
 
 
+
+/* ID SELECTORS */
+
+#left-panel{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#left-top-panel,
+#left-bottom-panel{
+  background-color: var(--color1);
+  width: 350px;
+  border-radius: 25px;
+  box-shadow: var(--box-shadow) 0px 3px 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#left-bottom-panel{
+  height: 100%;
+}
+
 #right-panel{
   background-color: var(--color1);
+  border-radius: 25px;
   flex: 1;
+  box-shadow: var(--box-shadow) 0px 3px 8px;
+}
+
+#addProject{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: 0.25s ease-in-out;
+}
+
+
+#addProject:hover .plus{
+    transform: rotate(90deg);
 }
