@@ -57,7 +57,7 @@ footer{
   transition: 0.25s ease-in-out;
 }
 
-#addProject:hover,
+#addProject-btn:hover,
 .left-rows:hover{
   background-color: var(--color3);
   color: var(--color1);
@@ -105,8 +105,9 @@ footer{
   box-shadow: var(--box-shadow) 0px 3px 8px;
 }
 
-#addProject{
+#addProject-btn{
   background-color: transparent;
+  width: 100%;
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
@@ -120,6 +121,11 @@ footer{
 }
 
 
-#addProject:hover .plus{
+#addProject-btn:hover .plus{
     transform: rotate(90deg);
 }
+
+#projects{
+  display: none;
+}
+
