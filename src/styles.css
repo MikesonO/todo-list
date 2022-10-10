@@ -43,6 +43,18 @@ main{
 
 footer{
   background-color: var(--color3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a{
+  color: var(--color1);
+  text-decoration: none;
+  display:flex;
+  font-size: 1.05rem;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 /* CLASS SELECTORS */
@@ -61,7 +73,7 @@ footer{
 .left-rows:hover{
   background-color: var(--color3);
   color: var(--color1);
-
+  box-shadow: var(--box-shadow) 0px 3px 8px;
 }
 
 .plus{
@@ -70,6 +82,107 @@ footer{
   color: var(--color1);
   padding: 0.1rem 0.2rem;
   transition: 0.5s;
+}
+
+.modal-container{
+  /* display: none; */
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 225px;
+  width: 475px;
+  background-color: var(--color1);
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows:75px 1fr;
+  box-shadow: var(--box-shadow) 0px 3px 8px;
+}
+
+.modal-top{
+  background-color: var(--color2);
+  color: var(--color1);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.close-btn{
+  background-color: Transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.close-icon{
+  cursor: pointer;
+  color: var(--color4);
+  transition: 0.15s;
+}
+
+.close-icon:hover{
+  color: var(--color3);
+}
+
+.modal-bottom{
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+.modal-bottom form{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  height: 100%;
+  gap: 1rem;
+  
+}
+
+.modal-bottom label,
+.modal-bottom input{
+  display: block;
+}
+
+.new-project-name{
+  width:100%;
+  padding: 0.25rem 1rem;
+  font-size: 1.2rem;
+  border: var(--color2) 2px solid;
+  border-radius: 7.5px;
+  box-shadow: 0 4px 6px -2px var(--box-shadow);
+}
+
+.modal-btn{
+  padding: .5rem 1rem;
+  box-shadow: 0 4px 6px -2px var(--box-shadow);
+  color: var(--color1);
+  background-color: var(--color2);
+  border: none;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.modal-btn:hover{
+  background-color: var(--color3);
 }
 
 
@@ -107,7 +220,6 @@ footer{
 
 #addProject-btn{
   background-color: transparent;
-  width: 100%;
   border: none;
   cursor: pointer;
   font-size: 1.2rem;

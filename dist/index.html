@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDo List</title>
 </head>
+
 <body>
   <header>
-    <div id="logo"><h1>Todo List <i class="fa-solid fa-list-check"></i></h1></div>
+    <div id="logo">
+      <h1>Todo List <i class="fa-solid fa-list-check"></i></h1>
+    </div>
   </header>
   <main>
     <div id="left-panel">
-    <div id="left-top-panel">
-      <div id="inbox" class="left-rows"><i class="fa-solid fa-inbox"></i><p>Inbox</p></div>
-      <div id="today" class="left-rows"><i class="fa-solid fa-calendar-day"></i><p>Today</p></div>
-      <div id="this-week" class="left-rows"><i class="fa-solid fa-calendar-week"></i><p>This Week</p></div>
-    </div>
-    <div id="left-bottom-panel">
-      <h3>Projects</h3>
-      <div id="projects"></div>
-      <div id="addProject"><button id="addProject-btn"><i class="plus fa-solid fa-plus"></i> Add Project</button></div>
+      <div id="left-top-panel">
+        <div id="inbox" class="left-rows"><i class="fa-solid fa-inbox"></i>
+          <p>Inbox</p>
+        </div>
+        <div id="today" class="left-rows"><i class="fa-solid fa-calendar-day"></i>
+          <p>Today</p>
+        </div>
+        <div id="this-week" class="left-rows"><i class="fa-solid fa-calendar-week"></i>
+          <p>This Week</p>
+        </div>
+      </div>
+      <div id="left-bottom-panel">
+        <h3>Projects</h3>
+        <div id="projects"></div>
+        <button id="addProject-btn"><i class="plus fa-solid fa-plus"></i> Add Project</button>
 
+        <div class="modal-container">
+          <div class="modal">
+            <div class="modal-top">
+              <div class="model-title">
+                <h2>Create New Project</h2>
+              </div>
+              <div class="modal-close">
+                <button class="close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
+              </div>
+
+            </div>
+            <div class="modal-bottom">
+              <form>
+                <div>
+                <label>Title:</label>
+                <input class="new-project-name" type="text" placeholder="">
+                </div>
+                <button class="modal-btn">Add Project</button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
     <div id="right-panel">
     </div>
   </main>
   <footer>
+    <a href="https://github.com/MikesonO/todo-list" target="_blank">
+      <p>Created by MikesonO</p><i class="fa-brands fa-github"></i>
+    </a>
   </footer>
   <script src="./main.js"></script>
 </body>
+
 </html>
