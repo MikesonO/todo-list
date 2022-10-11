@@ -255,6 +255,34 @@ footer a{
   display: none;
 }
 
+#projects.show{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+#projects .left-rows{
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete{
+  color: var(--color1);
+  display: none;
+  transition: 0.25s ease-in-out;
+}
+
+.delete:hover{
+  scale: 1.25;
+  color: var(--color4);
+}
+
+#projects .left-rows:hover .delete{
+  display: block;
+}
+
+
+
 
 
 @keyframes blur-in {

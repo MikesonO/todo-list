@@ -8,7 +8,6 @@ export const addProjectModal = (() => {
  }
  
  const hide = () =>{
-  
   console.log(modal)
    window.setTimeout(()=>modal.style.display = "none", 400);
    modalBox.classList.remove("active");
