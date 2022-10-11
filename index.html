@@ -44,12 +44,12 @@
 
             </div>
             <div class="modal-bottom">
-              <form>
+              <form onSubmit="return false">
                 <div>
                 <label>Title:</label>
-                <input class="new-project-name" type="text" placeholder="">
+                <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
                 </div>
-                <button class="modal-btn">Add Project</button>
+                <button  type="button" class="modal-btn" data-modal-btn="add">Add Project</button>
               </form>
 
             </div>
