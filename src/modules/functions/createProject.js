@@ -1,10 +1,11 @@
-import {camelize, inputCheck,resetInput} from "./helper-functions";
+import { camelize, inputCheck,resetInput } from "./helper-functions";
+import { Project, projectList } from "../class/project";
+
 export const createProject = (() => {
 
   const addProject = () =>{
     const projectNameInput = document.querySelector("[data-modal-input='project']");
     const projectName = projectNameInput.value;
-    console.log(projectName);
     inputCheck(projectNameInput);
     resetInput(projectNameInput);
     appendProject(projectName);
@@ -27,11 +28,14 @@ export const createProject = (() => {
 
     newProject.append(newProjectName, deleteBtn);
 
-    
+    const project = new Project(name, `${camelize(name)}`);
+    project.addProjects(project);
+    console.log(projectList);
 
     projects.appendChild(newProject);
   }
 
+  
   
 
 

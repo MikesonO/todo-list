@@ -3,6 +3,7 @@ import {addProjectModal} from "./display-modal";
 import {createProject} from "../functions/createProject";
 import { enterKey } from "../functions/helper-functions";
 
+
 export function eventEmitter(){
   const addProjectButton = document.querySelector("#addProject-btn");
   addProjectButton.addEventListener("click", addProjectModal.show);
