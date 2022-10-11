@@ -10,5 +10,10 @@ function resetInput(input) {
   input.value = "";
 }
 
+function enterKey(input, button){
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      button.click();
+}})};
 
-export{inputCheck, resetInput}
+export{inputCheck, resetInput, enterKey}
