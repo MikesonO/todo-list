@@ -40,8 +40,13 @@ export const createProject = (() => {
     projects.appendChild(newProject);
   }
 
-  const deleteProject = ()=>{
-    console.log("Working!");
+  const deleteProject = (event)=>{
+    event.target.parentElement.remove();
+
+
+    if (projects.childNodes.length === 0){
+      projects.classList.remove("show");
+    }
   }
 
   

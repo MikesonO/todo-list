@@ -20,7 +20,7 @@ export function eventEmitter() {
 
   document.getElementById("projects").addEventListener("click", (e)=>{
     if (e.target.classList.contains("delete-btn")){
-      createProject.deleteProject();
+      createProject.deleteProject(e);
     }
   })
 
