@@ -266,18 +266,28 @@ footer a{
   justify-content: space-between;
 }
 
-.delete{
-  color: var(--color1);
+.delete-btn{
   display: none;
-  transition: 0.25s ease-in-out;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.delete:hover{
-  scale: 1.25;
+.delete-icon{
+  color: var(--color1);
+  transition: all 0.35s ease-in-out;
+}
+
+.delete-btn:hover .delete-icon{
+  scale: 1.35;
   color: var(--color4);
 }
 
-#projects .left-rows:hover .delete{
+.delete-btn svg{
+  pointer-events: none;
+}
+
+#projects .left-rows:hover .delete-btn{
   display: block;
 }
 
