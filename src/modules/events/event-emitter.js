@@ -22,8 +22,15 @@ export function eventEmitter() {
     if (e.target.classList.contains("delete-btn")){
       createProject.deleteProject(e);
     }
-  })
+  });
 
-  // svg-inline--fa fa-trash delete-btn
-
+   document.querySelector("[data-projects='all']").addEventListener("click", (e)=>{
+    console.log("okay");
+    if (e.target.matches("[data-projects='default']")){
+      createProject.makeActive(e);
+    }
+    if (e.target.matches("[data-projects='newProject']")){
+      createProject.makeActive(e);
+    }
+  });
 }

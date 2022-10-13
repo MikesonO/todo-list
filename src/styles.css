@@ -69,6 +69,10 @@ footer a{
   transition: 0.25s ease-in-out;
 }
 
+.left-rows *:not(.delete-btn){
+  pointer-events: none;
+}
+
 #addProject-btn:hover,
 .left-rows:hover{
   background-color: var(--color3);

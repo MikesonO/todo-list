@@ -18,7 +18,7 @@ export const createProject = (() => {
 
     const newProject = document.createElement("div"); //Creates New Project div
     newProject.setAttribute("class","left-rows");
-    newProject.setAttribute("data","project")
+    newProject.setAttribute("data-projects","newProject")
     newProject.setAttribute("id",`${camelize(name)}`);
 
     const newProjectName = document.createElement("p"); //Display Project Name
@@ -41,22 +41,36 @@ export const createProject = (() => {
   }
 
   const deleteProject = (event)=>{
+    console.log("deleted");
     event.target.parentElement.remove();
-
-
     if (projects.childNodes.length === 0){
       projects.classList.remove("show");
+      
     }
   }
 
-  
+
+  const makeActive = (event) =>{
+    const allProjects = document.querySelector("[data-projects='all']");
+    const checkProjects = allProjects.querySelectorAll(".active");
+
+    if (checkProjects !== null ){
+      checkProjects.forEach(project =>{
+        if(project.classList.contains("active")){
+          project.classList.remove("active");
+          event.target.classList.add("active");
+      }});
+    } else {
+        event.target.classList.add("active");
+    }};
   
 
 
   return{
     addProject,
     appendProject,
-    deleteProject
+    deleteProject,
+    makeActive
   }
 
 })();
