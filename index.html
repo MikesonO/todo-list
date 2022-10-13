@@ -36,7 +36,7 @@
           <div class="project-modal">
             <div class="project-modal-top">
               <div class="model-title">
-                <h2>Create New Project</h2>
+                <h2>New Project</h2>
               </div>
               <div class="project-modal-close">
                 <button class="close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
@@ -46,10 +46,10 @@
             <div class="project-modal-bottom">
               <form onSubmit="return false">
                 <div>
-                <label>Title:</label>
-                <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
+                  <label>Title:</label>
+                  <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
                 </div>
-                <button  type="button" class="project-modal-btn" data-modal-btn="add">Add Project</button>
+                <button type="button" class="project-modal-btn" data-modal-btn="add">Add Project</button>
               </form>
 
             </div>
@@ -64,36 +64,52 @@
         <h1 id="title">Inbox</h1>
       </div>
       <div id="todos">
-      <p>Do this</p>
-      <p>Do that</p>
-    </div>
-    <button>Add Task</button>
+        <p>Do this</p>
+        <p>Do that</p>
+      </div>
+      <button>Add Task</button>
 
-<!-- 
-        <div class="modal-container" data-modal="new-project">
-          <div class="modal">
-            <div class="modal-top">
-              <div class="model-title">
-                <h2>Create New Project</h2>
-              </div>
-              <div class="modal-close">
-                <button class="close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
-              </div>
-
+      <div class="task-modal-container" data-modal="new-task">
+        <div class="task-modal active">
+          <div class="task-modal-top">
+            <div class="task-modal-title">
+              <h2>New Task</h2>
             </div>
-            <div class="modal-bottom">
-              <form onSubmit="return false">
-                <div>
-                <label>Title:</label>
-                <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
-                </div>
-                <button  type="button" class="modal-btn" data-modal-btn="add">Add Project</button>
-              </form>
-
+            <div class="task-modal-close">
+              <button class="close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
             </div>
 
           </div>
-        </div> -->
+          <div class="task-modal-bottom">
+            <form onSubmit="return false">
+              <div>
+                <label>Task:</label>
+                <input class="new-task-name" type="text" placeholder="" data-task-modal-input="title">
+              </div>
+              <div>
+                <label>Date:</label>
+                <input class="new-task-date" type="date" data-task-modal-input="date">
+              </div>
+              <div>
+                <label>Prirority:</label>
+                <select name="priority" id="priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div>
+                <label>Description:</label>
+                <textarea class="description" name="description" id="" cols="30" rows="10"></textarea>
+              </div>
+
+              <button type="button" class="task-modal-btn" data-modal-btn="add">Add Project</button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
     </div>
   </main>
   <footer>
