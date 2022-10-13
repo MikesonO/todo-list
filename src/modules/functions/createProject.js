@@ -18,7 +18,7 @@ export const createProject = (() => {
 
     const newProject = document.createElement("div"); //Creates New Project div
     newProject.setAttribute("class","left-rows");
-    newProject.setAttribute("data-projects","newProject")
+    newProject.setAttribute("data","project")
     newProject.setAttribute("id",`${camelize(name)}`);
 
     const newProjectName = document.createElement("p"); //Display Project Name
@@ -51,10 +51,10 @@ export const createProject = (() => {
 
 
   const makeActive = (event) =>{
-    const allProjects = document.querySelector("[data-projects='all']");
-    const checkProjects = allProjects.querySelectorAll(".active");
+    const allProjects = document.querySelector("[data='allProjects']");
+    let checkProjects = allProjects.querySelectorAll(".active");
 
-    if (checkProjects !== null ){
+    if (checkProjects.length !== 0){
       checkProjects.forEach(project =>{
         if(project.classList.contains("active")){
           project.classList.remove("active");

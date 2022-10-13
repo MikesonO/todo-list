@@ -24,12 +24,8 @@ export function eventEmitter() {
     }
   });
 
-   document.querySelector("[data-projects='all']").addEventListener("click", (e)=>{
-    console.log("okay");
-    if (e.target.matches("[data-projects='default']")){
-      createProject.makeActive(e);
-    }
-    if (e.target.matches("[data-projects='newProject']")){
+   document.querySelector("[data='allProjects']").addEventListener("click", (e)=>{
+    if (e.target.matches("[data='project']")){
       createProject.makeActive(e);
     }
   });
