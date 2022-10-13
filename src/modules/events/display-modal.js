@@ -1,25 +1,36 @@
-export const addProjectModal = (() => {
-  const modal = document.querySelector("[data-modal='new-project']");
-  const modalBox = document.querySelector(".project-modal");
+export const displayModals = (() => {
+  const projectModal = document.querySelector("[data-modal='new-project']");
+  const projectModalBox = document.querySelector(".project-modal");
+  const taskModal = document.querySelector("[data-modal='new-task']");
+  const taskModalBox = document.querySelector(".task-modal");
 
-  const show = () =>{
-  modal.style.display = "block";
-  modalBox.classList.add("active");
+  const showProjectModal = () =>{
+  projectModal.style.display = "block";
+  projectModalBox.classList.add("active");
  }
  
- const hide = () =>{
-   window.setTimeout(()=>modal.style.display = "none", 400);
-   modalBox.classList.remove("active");
+ const hideProjectModal = () =>{
+   window.setTimeout(()=> projectModal.style.display = "none", 400);
+   projectModalBox.classList.remove("active");
  }
 
 
+ const showTaskModal = () =>{
+  taskModal.style.display = "block";
+  taskModalBox.classList.add("active");
+ }
  
- 
- 
- 
+ const hideTaskModal = () =>{
+   window.setTimeout(()=> taskModal.style.display = "none", 400);
+   taskModalBox.classList.remove("active");
+ }
+
+
  return{
-   show,
-   hide,
+   showProjectModal,
+   hideProjectModal,
+   showTaskModal,
+   hideTaskModal
  }
  
  })();

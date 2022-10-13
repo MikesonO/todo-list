@@ -1,21 +1,21 @@
-import { addProjectModal } from "./display-modal";
+import { displayModals } from "./display-modal";
 import { createProject } from "../functions/createProject";
 import { enterKey } from "../functions/helper-functions";
 
 
 export function eventEmitter() {
   const addProjectButton = document.querySelector("#addProject-btn");
-  addProjectButton.addEventListener("click", addProjectModal.show);
+  addProjectButton.addEventListener("click", displayModals.showProjectModal);
 
-  const closeButton = document.querySelector(".close-btn");
-  closeButton.addEventListener('click', addProjectModal.hide);
+  const closeProjectButton = document.querySelector(".project-modal-close-btn");
+  closeProjectButton.addEventListener('click', displayModals.hideProjectModal);
 
   const createProjectButton = document.querySelector("[data-modal-btn='add']");
   const projectNameInput = document.querySelector("[data-modal-input='project']");
   enterKey(projectNameInput, createProjectButton); //Allows Enter keypress for input
   createProjectButton.addEventListener("click", () => {
     createProject.addProject();
-    addProjectModal.hide();
+    displayModals.hideProjectModal();
   });
 
   document.getElementById("projects").addEventListener("click", (e)=>{
@@ -29,4 +29,13 @@ export function eventEmitter() {
       createProject.makeActive(e);
     }
   });
+
+  const addTaskButton = document.querySelector("#addTask-btn");
+  addTaskButton.addEventListener("click", displayModals.showTaskModal);
+
+  const closeTaskButton = document.querySelector(".task-modal-close-btn");
+  closeTaskButton.addEventListener('click', displayModals.hideTaskModal);
+
+
+  
 }

@@ -116,7 +116,7 @@ footer a{
   left: 50%;
   transform: translate(-50%, -50%);
   height: 225px;
-  width: 475px;
+  width: 375px;
   background-color: var(--color1);
   border-radius: 20px;
   display: grid;
@@ -126,7 +126,7 @@ footer a{
 }
 
 .project-modal.active{
-  animation: slideIn .4s 1;
+  animation: slideIn .4s 1 ease-in;
 }
 
 .project-modal-top{
@@ -141,7 +141,8 @@ footer a{
 
 }
 
-.close-btn{
+.project-modal-close-btn,
+.task-modal-close-btn{
   background-color: Transparent;
   border: none;
   font-size: 2rem;
@@ -207,7 +208,7 @@ footer a{
 
 
 .task-modal-container{
-  display: hidden;
+  display: none;
   position: fixed; 
   z-index: 1;
   left: 0;
@@ -240,11 +241,11 @@ footer a{
   display: grid;
   grid-template-rows: 60px 1fr;
   box-shadow: var(--box-shadow) 0px 3px 8px;
-  animation: slideOut .4s 1;
+  animation: slideOut .5s 1;
 }
 
 .task-modal.active{
-  animation: slideIn .4s 1;
+  animation: slideIn .5s 1 ease-in;
 }
 
 
@@ -287,16 +288,17 @@ footer a{
 .modal-date,
 .modal-priority,
 .modal-description{
+  font-family: inherit;
   width:100%;
   padding: 0.25rem 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: var(--color2) 2px solid;
   border-radius: 7.5px;
   box-shadow: 0 4px 6px -2px var(--box-shadow);
 }
 
+
 .modal-description{
-  font-family: inherit;
   font-size: 1rem;
   height: 150px;
   resize: none;
