@@ -1,6 +1,6 @@
 export const addProjectModal = (() => {
   const modal = document.querySelector("[data-modal='new-project']");
-  const modalBox = document.querySelector(".modal");
+  const modalBox = document.querySelector(".project-modal");
 
   const show = () =>{
   modal.style.display = "block";

@@ -32,6 +32,44 @@
         <div id="projects"></div>
         <button id="addProject-btn"><i class="plus fa-solid fa-plus"></i> Add Project</button>
 
+        <div class="project-modal-container" data-modal="new-project">
+          <div class="project-modal">
+            <div class="project-modal-top">
+              <div class="model-title">
+                <h2>Create New Project</h2>
+              </div>
+              <div class="project-modal-close">
+                <button class="close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
+              </div>
+
+            </div>
+            <div class="project-modal-bottom">
+              <form onSubmit="return false">
+                <div>
+                <label>Title:</label>
+                <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
+                </div>
+                <button  type="button" class="project-modal-btn" data-modal-btn="add">Add Project</button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="right-panel" data="project-view">
+      <div id="title-container">
+        <h1 id="title">Inbox</h1>
+      </div>
+      <div id="todos">
+      <p>Do this</p>
+      <p>Do that</p>
+    </div>
+    <button>Add Task</button>
+
+<!-- 
         <div class="modal-container" data-modal="new-project">
           <div class="modal">
             <div class="modal-top">
@@ -55,13 +93,7 @@
             </div>
 
           </div>
-        </div>
-
-      </div>
-    </div>
-    <div id="right-panel">
-      <div id="title"></div>
-      <div id="todos"></div>
+        </div> -->
     </div>
   </main>
   <footer>

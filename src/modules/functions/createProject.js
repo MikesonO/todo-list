@@ -59,10 +59,20 @@ export const createProject = (() => {
         if(project.classList.contains("active")){
           project.classList.remove("active");
           event.target.classList.add("active");
+          clearProject();
       }});
     } else {
         event.target.classList.add("active");
     }};
+
+    const clearProject = () =>{
+        const projectTitle = document.querySelector("#title");
+        const projectTodos = document.querySelector("#todos");
+        projectTitle.textContent = "";
+        projectTodos.textContent = "";
+      }
+
+    
   
 
 
