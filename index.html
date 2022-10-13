@@ -86,24 +86,26 @@
                 <label>Task:</label>
                 <input class="new-task-name" type="text" placeholder="" data-task-modal-input="title">
               </div>
-              <div>
+              <div class="date-and-priority">
+                <div>
                 <label>Date:</label>
-                <input class="new-task-date" type="date" data-task-modal-input="date">
-              </div>
-              <div>
-                <label>Prirority:</label>
-                <select name="priority" id="priority">
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
+                <input class="modal-date" type="date" data-task-modal-input="date">
+                </div>
+                <div>
+                  <label>Prirority:</label>
+                  <select name="modal-priority" id="modal-priority" class="modal-priority" data-task-modal-input="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
               </div>
               <div>
                 <label>Description:</label>
-                <textarea class="description" name="description" id="" cols="30" rows="10"></textarea>
+                <textarea class="modal-description" name="description" id="" cols="30" rows="10" data-task-modal-input="description"></textarea>
               </div>
 
-              <button type="button" class="task-modal-btn" data-modal-btn="add">Add Project</button>
+              <button type="button" class="task-modal-btn" data-modal-btn="add">Add Task</button>
             </form>
 
           </div>
