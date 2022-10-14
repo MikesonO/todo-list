@@ -15,7 +15,9 @@
     </div>
   </header>
   <main>
+    <!-- LEFT PANEL -->
     <div id="left-panel" data="allProjects">
+      <!-- LEFT TOP PANEL -->
       <div id="left-top-panel">
         <div id="inbox" class="left-rows active" data="project"><i class="fa-solid fa-inbox"></i>
           <p>Inbox</p>
@@ -27,11 +29,11 @@
           <p>This Week</p>
         </div>
       </div>
+      <!-- LEFT BOTTOM PANEL -->
       <div id="left-bottom-panel">
         <h3>Projects</h3>
         <div id="projects"></div>
         <button id="addProject-btn"><i class="plus fa-solid fa-plus"></i> Add Project</button>
-
         <div class="project-modal-container" data-modal="new-project">
           <div class="project-modal">
             <div class="project-modal-top">
@@ -41,8 +43,8 @@
               <div class="project-modal-close">
                 <button class="project-modal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
               </div>
-
             </div>
+            <!-- ADD PROJECT MODAL -->
             <div class="project-modal-bottom">
               <form onSubmit="return false">
                 <div>
@@ -51,67 +53,98 @@
                 </div>
                 <button type="button" class="project-modal-btn" data-modal-btn="add">Add Project</button>
               </form>
-
             </div>
-
           </div>
-        </div>
-
-      </div>
-    </div>
-    <div id="right-panel" data="project-view">
-      <div id="title-container">
-        <h1 id="title">Inbox</h1>
-      </div>
-      <div id="todos">
-        <p>Do this</p>
-        <p>Do that</p>
-      </div>
-      <button id="addTask-btn">Add Task</button>
-
-      <div class="task-modal-container" data-modal="new-task">
-        <div class="task-modal">
-          <div class="task-modal-top">
-            <div class="task-modal-title">
-              <h2>New Task</h2>
-            </div>
-            <div class="task-modal-close">
-              <button class="task-modal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
-            </div>
-
-          </div>
-          <div class="task-modal-bottom">
-            <form onSubmit="return false">
-              <div>
-                <label>Task:</label>
-                <input class="new-task-name" type="text" placeholder="" data-task-modal-input="title">
-              </div>
-              <div class="date-and-priority">
-                <div>
-                <label>Date:</label>
-                <input class="modal-date" type="date" data-task-modal-input="date">
-                </div>
-                <div>
-                  <label>Prirority:</label>
-                  <select name="modal-priority" id="modal-priority" class="modal-priority" data-task-modal-input="priority">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label>Description:</label>
-                <textarea class="modal-description" name="description" id="modal-description" cols="30" rows="10" data-task-modal-input="description"></textarea>
-              </div>
-              <button type="button" class="task-modal-btn" data-modal-btn="add">Add Task</button>
-            </form>
-
-          </div>
-
         </div>
       </div>
     </div>
+    <!-- RIGHT PANEL -->
+    <div id="right-panel">
+      <div id="task-view">
+        <!-- TITLE CONTAINER -->
+        <div id="title-container">
+          <h1 id="title">Inbox</h1>
+        </div>
+        <!-- TASK DISPLAY -->
+        <div id="task-list">
+          <!--TASK LIST TEMPLATE-->
+          <div class="task">
+            <div class="circle"></div>
+            <div class="task-title">
+                <p>ToDo List</p>
+              </div>
+            <div class="date">Oct 14th</div>
+            <div class="priority high"><i class="fa-solid fa-fire"></i> High</div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+          <div class="task">
+            <div class="circle"></div>
+            <div class="task-title">
+                <p>Sleep</p>
+              </div>
+            <div class="date">Oct 14th</div>
+            <div class="priority medium"><i class="fa-solid fa-fire"></i> Medium</div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+          <div class="task">
+            <div class="circle"></div>
+            <div class="task-title">
+                <p>Go Gym</p>
+              </div>
+            <div class="date">Oct 15th</div>
+            <div class="priority low"><i class="fa-solid fa-fire"></i> Low</div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+
+        </div>
+
+          <button id="addTask-btn"><i class="plus fa-solid fa-plus"></i>Add Task</button>
+          <!-- ADD TASK MODAL -->
+          <div class="task-modal-container" data-modal="new-task">
+            <div class="task-modal">
+              <div class="task-modal-top">
+                <div class="task-modal-title">
+                  <h2>New Task</h2>
+                </div>
+                <div class="task-modal-close">
+                  <button class="task-modal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
+                </div>
+              </div>
+              <div class="task-modal-bottom">
+                <form onSubmit="return false">
+                  <div>
+                    <label>Task:</label>
+                    <input class="new-task-name" type="text" placeholder="" data-task-modal-input="title">
+                  </div>
+                  <div class="date-and-priority">
+                    <div>
+                      <label>Date:</label>
+                      <input class="modal-date" type="date" data-task-modal-input="date">
+                    </div>
+                    <div>
+                      <label>Prirority:</label>
+                      <select name="modal-priority" id="modal-priority" class="modal-priority"
+                        data-task-modal-input="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label>Description:</label>
+                    <textarea class="modal-description" name="description" id="modal-description" cols="30" rows="10"
+                      data-task-modal-input="description"></textarea>
+                  </div>
+                  <button type="button" class="task-modal-btn" data-modal-btn="add">Add Task</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
   </main>
   <footer>
     <a href="https://github.com/MikesonO/todo-list" target="_blank">

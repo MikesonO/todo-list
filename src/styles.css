@@ -9,6 +9,9 @@
   --color4: #9BA4B4;
   --color5: #222831;
   --box-shadow: rgba(0, 0, 0, 0.24);
+  --high: #004f88;
+  --meduim: #2688e8;
+  --low: #40b0ff;
 }
 
 *{
@@ -74,6 +77,7 @@ footer a{
 }
 
 #addProject-btn:hover,
+#addTask-btn:hover,
 .left-rows:hover{
   background-color: var(--color3);
   color: var(--color1);
@@ -160,12 +164,13 @@ footer a{
 }
 
 .project-modal-bottom{
-  flex: 1 1 auto;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem;
 }
+
 .project-modal-bottom form{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width:100%;
   height: 100%;
   gap: 1rem;
@@ -305,6 +310,64 @@ footer a{
 }
 
 
+.task{
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.task:hover{
+  background-color: var(--color3);
+  color: var(--color1);
+  box-shadow: var(--box-shadow) 0px 3px 8px;
+}
+
+.task-title{
+  flex:1;
+}
+
+.task-description{
+  white-space: pre-wrap;
+    overflow-wrap: normal;
+}
+
+.circle{
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  border: 2px solid var(--color3);
+  background-color: var(--color1);
+  padding: 0.1rem 0.2rem;
+}
+
+.priority{
+  width: 90px;
+  text-shadow: 0 0 1.5px var(--box-shadow)
+  
+}
+
+.priority.high{
+  color: var(--high);
+}
+
+.priority.medium{
+  color: var(--meduim);
+}
+
+.priority.low{
+  color: var(--low);
+}
+
+.task:hover .priority{
+  color: var(--color1);
+}
+
 /* ID SELECTORS */
 
 #left-panel{
@@ -334,10 +397,16 @@ footer a{
   border-radius: 25px;
   flex: 1;
   box-shadow: var(--box-shadow) 0px 3px 8px;
-  padding: 2rem
+  padding: 2rem;
 }
 
-#addProject-btn{
+#task-view{
+  width: 75%;
+  margin: 0 auto;
+}
+
+#addProject-btn,
+#addTask-btn{
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -351,8 +420,13 @@ footer a{
   transition: 0.25s ease-in-out;
 }
 
+#addTask-btn{
+  width: 100%;
+}
 
-#addProject-btn:hover .plus{
+
+#addProject-btn:hover .plus,
+#addTask-btn:hover .plus{
     transform: rotate(90deg);
 }
 
@@ -360,10 +434,15 @@ footer a{
   display: none;
 }
 
-#projects.show{
+#projects.show,
+#task-list{
   display: flex;
   flex-direction: column;
   gap: .5rem;
+}
+
+#task-list{
+  padding: .5rem 0;
 }
 
 #projects .left-rows{
@@ -395,6 +474,7 @@ footer a{
 #projects .left-rows:hover .delete-btn{
   display: block;
 }
+
 
 
 

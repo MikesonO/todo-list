@@ -67,7 +67,7 @@ export const createProject = (() => {
 
     const clearProject = () =>{
         const projectTitle = document.querySelector("#title");
-        const projectTodos = document.querySelector("#todos");
+        const projectTodos = document.querySelector("#task-list");
         projectTitle.textContent = "";
         projectTodos.textContent = "";
       }
