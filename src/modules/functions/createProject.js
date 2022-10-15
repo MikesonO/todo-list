@@ -6,7 +6,7 @@ export const createProject = (() => {
   const projects = document.getElementById("projects");
 
   const addProject = () =>{
-    const projectNameInput = document.querySelector("[data-modal-input='project']");
+    const projectNameInput = document.querySelector("[data-pModal-input='project']");
     const projectName = projectNameInput.value;
     inputCheck(projectNameInput);
     resetInput(projectNameInput);

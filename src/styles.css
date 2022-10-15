@@ -92,7 +92,7 @@ footer a{
   transition: 0.5s;
 }
 
-.project-modal-container{
+.pModal-container{
   display: none;
   position: fixed; 
   z-index: 1;
@@ -107,14 +107,14 @@ footer a{
   transition: .4s;
 }
 
-.project-modal-container:has(.project-modal.active){
+.pModal-container:has(.pModal.active){
   animation: blur-in .4s 1;
   backdrop-filter: blur(5px);
   opacity: 1;
 }
 
 
-.project-modal{
+.pModal{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -129,11 +129,11 @@ footer a{
   animation: slideOut .4s 1;
 }
 
-.project-modal.active{
+.pModal.active{
   animation: slideIn .4s 1 ease-in;
 }
 
-.project-modal-top{
+.pModal-top{
   background-color: var(--color2);
   color: var(--color1);
   border-top-left-radius: inherit;
@@ -145,8 +145,8 @@ footer a{
 
 }
 
-.project-modal-close-btn,
-.task-modal-close-btn{
+.pModal-close-btn,
+.tModal-close-btn{
   background-color: Transparent;
   border: none;
   font-size: 2rem;
@@ -163,11 +163,11 @@ footer a{
   color: var(--color3);
 }
 
-.project-modal-bottom{
+.pModal-bottom{
   padding: 1.5rem 1rem 1rem;
 }
 
-.project-modal-bottom form{
+.pModal-bottom form{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -177,8 +177,8 @@ footer a{
   
 }
 
-.project-modal-bottom label,
-.project-modal-bottom input{
+.pModal-bottom label,
+.pModal-bottom input{
   display: block;
 }
 
@@ -191,8 +191,8 @@ footer a{
   box-shadow: 0 4px 6px -2px var(--box-shadow);
 }
 
-.project-modal-btn,
-.task-modal-btn{
+.pModal-btn,
+.tModal-btn{
   padding: .5rem 1rem;
   box-shadow: 0 4px 6px -2px var(--box-shadow);
   color: var(--color1);
@@ -206,13 +206,13 @@ footer a{
   transition: 0.15s;
 }
 
-.project-modal-btn:hover,
-.task-modal-btn:hover{
+.pModal-btn:hover,
+.tModal-btn:hover{
   background-color: var(--color3);
 }
 
 
-.task-modal-container{
+.tModal-container{
   display: none;
   position: fixed; 
   z-index: 1;
@@ -228,13 +228,13 @@ footer a{
 }
 
 
-.task-modal-container:has(.task-modal.active){
+.tModal-container:has(.tModal.active){
   animation: blur-in .4s 1;
   backdrop-filter: blur(5px);
   opacity: 1;
 }
 
-.task-modal{
+.tModal{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -249,12 +249,12 @@ footer a{
   animation: slideOut .5s 1;
 }
 
-.task-modal.active{
+.tModal.active{
   animation: slideIn .5s 1 ease-in;
 }
 
 
-.task-modal-top{
+.tModal-top{
   background-color: var(--color2);
   color: var(--color1);
   border-top-left-radius: inherit;
@@ -265,11 +265,11 @@ footer a{
   justify-content: space-between;
 }
 
-.task-modal-bottom{
+.tModal-bottom{
   flex: 1 1 auto;
   padding: 1rem;
 }
-.task-modal-bottom form{
+.tModal-bottom form{
   display: flex;
   flex-direction: column;
   width:100%;
@@ -278,8 +278,8 @@ footer a{
   
 }
 
-.task-modal-bottom label,
-.task-modal-bottom input{
+.tModal-bottom label,
+.tModal-bottom input{
   display: block;
 }
 

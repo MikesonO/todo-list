@@ -34,24 +34,24 @@
         <h3>Projects</h3>
         <div id="projects"></div>
         <button id="addProject-btn"><i class="plus fa-solid fa-plus"></i> Add Project</button>
-        <div class="project-modal-container" data-modal="new-project">
-          <div class="project-modal">
-            <div class="project-modal-top">
+        <div class="pModal-container" data-modal="new-project">
+          <div class="pModal">
+            <div class="pModal-top">
               <div class="model-title">
                 <h2>New Project</h2>
               </div>
-              <div class="project-modal-close">
-                <button class="project-modal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
+              <div class="pModal-close">
+                <button class="pModal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
               </div>
             </div>
             <!-- ADD PROJECT MODAL -->
-            <div class="project-modal-bottom">
+            <div class="pModal-bottom">
               <form onSubmit="return false">
                 <div>
                   <label>Title:</label>
-                  <input class="new-project-name" type="text" placeholder="" data-modal-input="project">
+                  <input class="new-project-name" type="text" placeholder="" data-pModal-input="project">
                 </div>
-                <button type="button" class="project-modal-btn" data-modal-btn="add">Add Project</button>
+                <button type="button" class="pModal-btn" data-pModal-btn="add">Add Project</button>
               </form>
             </div>
           </div>
@@ -103,31 +103,31 @@
 
           <button id="addTask-btn"><i class="plus fa-solid fa-plus"></i>Add Task</button>
           <!-- ADD TASK MODAL -->
-          <div class="task-modal-container" data-modal="new-task">
-            <div class="task-modal">
-              <div class="task-modal-top">
-                <div class="task-modal-title">
+          <div class="tModal-container" data-modal="new-task">
+            <div class="tModal">
+              <div class="tModal-top">
+                <div class="tModal-title">
                   <h2>New Task</h2>
                 </div>
-                <div class="task-modal-close">
-                  <button class="task-modal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
+                <div class="tModal-close">
+                  <button class="tModal-close-btn"><i class="close-icon fa-solid fa-square-xmark"></i></button>
                 </div>
               </div>
-              <div class="task-modal-bottom">
+              <div class="tModal-bottom">
                 <form onSubmit="return false">
                   <div>
                     <label>Task:</label>
-                    <input class="new-task-name" type="text" placeholder="" data-task-modal-input="title">
+                    <input class="new-task-name" type="text" placeholder="" data-tModal-input="title">
                   </div>
                   <div class="date-and-priority">
                     <div>
                       <label>Date:</label>
-                      <input class="modal-date" type="date" data-task-modal-input="date">
+                      <input class="modal-date" type="date" data-tModal-input="date">
                     </div>
                     <div>
                       <label>Prirority:</label>
                       <select name="modal-priority" id="modal-priority" class="modal-priority"
-                        data-task-modal-input="priority">
+                        data-tModal-input="priority">
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
@@ -137,9 +137,9 @@
                   <div>
                     <label>Description:</label>
                     <textarea class="modal-description" name="description" id="modal-description" cols="30" rows="10"
-                      data-task-modal-input="description"></textarea>
+                      data-tModal-input="description"></textarea>
                   </div>
-                  <button type="button" class="task-modal-btn" data-modal-btn="add">Add Task</button>
+                  <button type="button" class="tModal-btn" data-tModal-btn="add">Add Task</button>
                 </form>
               </div>
             </div>

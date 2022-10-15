@@ -1,8 +1,8 @@
 export const displayModals = (() => {
   const projectModal = document.querySelector("[data-modal='new-project']");
-  const projectModalBox = document.querySelector(".project-modal");
+  const projectModalBox = document.querySelector(".pModal");
   const taskModal = document.querySelector("[data-modal='new-task']");
-  const taskModalBox = document.querySelector(".task-modal");
+  const taskModalBox = document.querySelector(".tModal");
 
   const showProjectModal = () =>{
   projectModal.style.display = "block";
