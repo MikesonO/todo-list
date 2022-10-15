@@ -8,8 +8,6 @@ export const createProject = (() => {
   const addProject = () =>{
     const projectNameInput = document.querySelector("[data-pModal-input='project']");
     const projectName = projectNameInput.value;
-    inputCheck(projectNameInput);
-    resetInput(projectNameInput);
     appendProject(projectName);
   }
 
@@ -78,7 +76,6 @@ export const createProject = (() => {
 
   return{
     addProject,
-    appendProject,
     deleteProject,
     makeActive
   }

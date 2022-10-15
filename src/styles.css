@@ -354,20 +354,27 @@ footer a{
   text-shadow: 0 0 1.5px var(--box-shadow);
 }
 
-.priority.high{
+.high{
   color: var(--high);
+  border-color: var(--high);
 }
 
-.priority.medium{
+.medium{
   color: var(--meduim);
+  border-color: var(--meduim);
 }
 
-.priority.low{
+.low{
   color: var(--low);
+  border-color: var(--low);
 }
 
 .task:hover .priority{
   color: var(--color1);
+}
+
+.required-symbol{
+  color: var(--color4);
 }
 
 /* ID SELECTORS */

@@ -46,9 +46,9 @@
             </div>
             <!-- ADD PROJECT MODAL -->
             <div class="pModal-bottom">
-              <form>
+              <form onSubmit="return false">
                 <div>
-                  <label>Title:</label>
+                  <label>Title<span class="required-symbol">*</span></label>
                   <input class="new-project-name" type="text" placeholder="" data-pModal-input="project">
                 </div>
                 <button type="button" class="pModal-btn" data-pModal-btn="add">Add Project</button>
@@ -92,18 +92,18 @@
                 </div>
               </div>
               <div class="tModal-bottom">
-                <form>
+                <form onSubmit="return false">
                   <div>
-                    <label>Task:</label>
+                    <label>Task<span class="required-symbol">*</span></label>
                     <input class="new-task-name" type="text" placeholder="" data-tModal-input="title">
                   </div>
                   <div class="date-and-priority">
                     <div>
-                      <label>Date:</label>
+                      <label>Date</label>
                       <input class="modal-date" type="date" data-tModal-input="date">
                     </div>
                     <div>
-                      <label>Prirority:</label>
+                      <label>Prirority</label>
                       <select name="modal-priority" id="modal-priority" class="modal-priority"
                         data-tModal-input="priority">
                         <option value="low">Low</option>
@@ -113,7 +113,7 @@
                     </div>
                   </div>
                   <div>
-                    <label>Description:</label>
+                    <label>Description</label>
                     <textarea class="modal-description" name="description" id="modal-description" cols="30" rows="10"
                       data-tModal-input="description"></textarea>
                   </div>

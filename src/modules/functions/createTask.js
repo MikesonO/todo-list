@@ -1,6 +1,7 @@
-import { camelize, inputCheck, resetInput, capitalizeFirstLetter } from "./helper-functions";
+import { capitalizeFirstLetter, resetSelectedInput } from "./helper-functions";
 import { Project, projectList } from "../class/project";
 import { dateFormat } from "./dataFormat";
+import { resetInput } from "./helper-functions";
 
 
 
@@ -28,9 +29,6 @@ export const createTask = (() => {
     console.log(taskPriority); 
     console.log(taskdescription); 
 
-    inputCheck(taskTitleInput);
-    // inputCheck(taskTitle, taskDate, taskPriority, taskdescription);
-    // resetInput(taskTitle, taskDate, taskPriority, taskdescription);
     appendTask(taskTitle, taskDate, taskPriority);
   }
 
@@ -40,7 +38,8 @@ export const createTask = (() => {
     newTask.setAttribute("class","task");
 
     const circle = document.createElement("div");
-    circle.setAttribute("class", "circle");
+    const circleAttributes = ["circle",`${taskPriority}`];
+    circle.classList.add(...circleAttributes);
 
     const title = document.createElement("div");
     title.setAttribute("class","task-title");
@@ -59,20 +58,36 @@ export const createTask = (() => {
     const fireAttributes = ["fa-solid", "fa-fire"];
     fire.classList.add(...fireAttributes);
     priority.append(fire, priorityText)
-   
-    
-    const ellipses = document.createElement("svg");
-    const ellipsesAttributes = ["fa-solid" ,"fa-ellipsis-vertical"];
-    ellipses.classList.add(...ellipsesAttributes);
 
-    newTask.append(circle, title, date, priority, ellipses);
+    const editIcon = document.createElement("svg");
+    const editIconAttributes = ["fa-solid", "fa-pen-to-square"];
+    editIcon.classList.add(...editIconAttributes);
+    
+    const deleteIcon = document.createElement("svg");
+    const deleteIconAttributes = ["fa-solid" ,"fa-trash"];
+    deleteIcon.classList.add(...deleteIconAttributes);
+
+    newTask.append(circle, title, date, priority, editIcon, deleteIcon);
     tasks.appendChild(newTask);
+  }
+
+  const resetTaskModal = ()=>{
+    const taskTitleInput = document.querySelector("[data-tModal-input='title']");
+    const taskDateInput = document.querySelector("[data-tModal-input='date']");
+    const taskPriorityInput = document.querySelector("[data-tModal-input='priority']");
+    const taskDescriptionInput = document.querySelector("[data-tModal-input='description']");
+
+    resetInput(taskTitleInput);
+    resetInput(taskDateInput);
+    resetSelectedInput(taskPriorityInput);
+    resetInput(taskDescriptionInput);
   }
 
 
 
   return{
-    addTask
+    addTask,
+    resetTaskModal
   }
 
 })();

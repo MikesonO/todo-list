@@ -2,6 +2,7 @@ import { displayModals } from "./display-modal";
 import { createProject } from "../functions/createProject";
 import { enterKey } from "../functions/helper-functions";
 import { createTask } from "../functions/createTask";
+import { inputCheck, resetInput } from "../functions/helper-functions";
 
 
 export function eventEmitter() {
@@ -15,8 +16,13 @@ export function eventEmitter() {
   const projectNameInput = document.querySelector("[data-pModal-input='project']");
   enterKey(projectNameInput, createProjectButton); //Allows Enter keypress for input
   createProjectButton.addEventListener("click", () => {
+    if ( inputCheck(projectNameInput) == false){
+      return
+    } else {
     createProject.addProject();
     displayModals.hideProjectModal();
+    resetInput(projectNameInput);
+    }
   });
 
   document.getElementById("projects").addEventListener("click", (e)=>{
@@ -41,11 +47,16 @@ export function eventEmitter() {
   const taskNameInput = document.querySelector("[data-tModal-input='title']");
   enterKey(taskNameInput, createTaskButton);
   createTaskButton.addEventListener("click", () => {
+    if ( inputCheck(taskNameInput) == false){
+      return
+    } else {
     createTask.addTask();
     displayModals.hideTaskModal();
+    createTask.resetTaskModal();
+    }
   });
 
 
-
+  
   
 }
