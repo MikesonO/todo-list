@@ -46,7 +46,7 @@
             </div>
             <!-- ADD PROJECT MODAL -->
             <div class="pModal-bottom">
-              <form onSubmit="return false">
+              <form>
                 <div>
                   <label>Title:</label>
                   <input class="new-project-name" type="text" placeholder="" data-pModal-input="project">
@@ -67,40 +67,18 @@
         </div>
         <!-- TASK DISPLAY -->
         <div id="task-list">
-          <!--TASK LIST TEMPLATE-->
+          <!-- TASK LIST TEMPLATE
           <div class="task">
             <div class="circle"></div>
             <div class="task-title">
-                <p>ToDo List</p>
+                ToDo List
               </div>
             <div class="date">Oct 14th</div>
             <div class="priority high"><i class="fa-solid fa-fire"></i> High</div>
             <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-
-          <div class="task">
-            <div class="circle"></div>
-            <div class="task-title">
-                <p>Sleep</p>
-              </div>
-            <div class="date">Oct 14th</div>
-            <div class="priority medium"><i class="fa-solid fa-fire"></i> Medium</div>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-
-          <div class="task">
-            <div class="circle"></div>
-            <div class="task-title">
-                <p>Go Gym</p>
-              </div>
-            <div class="date">Oct 15th</div>
-            <div class="priority low"><i class="fa-solid fa-fire"></i> Low</div>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-
-
+          </div> -->
         </div>
-
+        
           <button id="addTask-btn"><i class="plus fa-solid fa-plus"></i>Add Task</button>
           <!-- ADD TASK MODAL -->
           <div class="tModal-container" data-modal="new-task">
@@ -114,7 +92,7 @@
                 </div>
               </div>
               <div class="tModal-bottom">
-                <form onSubmit="return false">
+                <form>
                   <div>
                     <label>Task:</label>
                     <input class="new-task-name" type="text" placeholder="" data-tModal-input="title">
@@ -128,9 +106,9 @@
                       <label>Prirority:</label>
                       <select name="modal-priority" id="modal-priority" class="modal-priority"
                         data-tModal-input="priority">
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high"><p>High</p></option>
                       </select>
                     </div>
                   </div>

@@ -9,9 +9,9 @@
   --color4: #9BA4B4;
   --color5: #222831;
   --box-shadow: rgba(0, 0, 0, 0.24);
-  --high: #004f88;
-  --meduim: #2688e8;
-  --low: #40b0ff;
+  --high: #004F88;
+  --meduim: #2688E8;
+  --low: #40B0FF;
 }
 
 *{
@@ -347,9 +347,11 @@ footer a{
 }
 
 .priority{
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   width: 90px;
-  text-shadow: 0 0 1.5px var(--box-shadow)
-  
+  text-shadow: 0 0 1.5px var(--box-shadow);
 }
 
 .priority.high{
