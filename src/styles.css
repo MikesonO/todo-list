@@ -60,6 +60,12 @@ footer a{
   gap: 0.25rem;
 }
 
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* CLASS SELECTORS */
 .left-rows{
   display: flex;
@@ -147,10 +153,7 @@ footer a{
 
 .pModal-close-btn,
 .tModal-close-btn{
-  background-color: Transparent;
-  border: none;
   font-size: 2rem;
-  cursor: pointer;
 }
 
 .close-icon{
@@ -197,12 +200,10 @@ footer a{
   box-shadow: 0 4px 6px -2px var(--box-shadow);
   color: var(--color1);
   background-color: var(--color2);
-  border: none;
   border-radius: 5px;
   width: fit-content;
   margin: 0 auto;
   font-size: 1.05rem;
-  cursor: pointer;
   transition: 0.15s;
 }
 
@@ -352,6 +353,7 @@ footer a{
   gap: 0.3rem;
   width: 90px;
   text-shadow: 0 0 1.5px var(--box-shadow);
+  padding-right: .5rem;
 }
 
 .high{
@@ -416,9 +418,6 @@ footer a{
 
 #addProject-btn,
 #addTask-btn{
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -459,11 +458,13 @@ footer a{
   justify-content: space-between;
 }
 
+.left-rows.active{
+  background-color: var(--color2);
+  color: var(--color1);
+}
+
 .delete-btn{
   display: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
 }
 
 .delete-icon{
@@ -485,6 +486,36 @@ footer a{
 }
 
 
+.task-view-button,
+.task-edit-button,
+.task-delete-button{
+  display: none;
+}
+
+
+.task-view-icon,
+.task-edit-icon,
+.task-delete-icon{
+  color: var(--color1);
+  transition: all 0.35s ease-in-out;
+}
+
+.task-view-button:hover .task-view-icon,
+.task-edit-button:hover .task-edit-icon,
+.task-delete-button:hover .task-delete-icon{
+  scale: 1.35;
+  color: var(--color4);
+}
+
+.task:hover .task-view-button,
+.task:hover .task-edit-button,
+.task:hover .task-delete-button{
+  display: block;
+}
+
+.task:hover .priority{
+  width: fit-content;
+}
 
 
 

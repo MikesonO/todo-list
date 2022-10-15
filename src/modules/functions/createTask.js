@@ -59,15 +59,31 @@ export const createTask = (() => {
     fire.classList.add(...fireAttributes);
     priority.append(fire, priorityText)
 
-    const editIcon = document.createElement("svg");
-    const editIconAttributes = ["fa-solid", "fa-pen-to-square"];
-    editIcon.classList.add(...editIconAttributes);
-    
-    const deleteIcon = document.createElement("svg");
-    const deleteIconAttributes = ["fa-solid" ,"fa-trash"];
-    deleteIcon.classList.add(...deleteIconAttributes);
 
-    newTask.append(circle, title, date, priority, editIcon, deleteIcon);
+    const viewButton = document.createElement("button");
+    viewButton.setAttribute("class", "task-view-button");
+    const viewIcon = document.createElement("svg");
+    const viewIconAttributes = ["task-view-icon", "fa-solid", "fa-eye"];
+    viewIcon.classList.add(...viewIconAttributes);
+    viewButton.appendChild(viewIcon)
+
+
+
+    const editButton = document.createElement("button");
+    editButton.setAttribute("class", "task-edit-button");
+    const editIcon = document.createElement("svg");
+    const editIconAttributes = ["task-edit-icon", "fa-solid", "fa-pen-to-square"];
+    editIcon.classList.add(...editIconAttributes);
+    editButton.appendChild(editIcon)
+    
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "task-delete-button");
+    const deleteIcon = document.createElement("svg");
+    const deleteIconAttributes = ["task-delete-icon", "fa-solid" ,"fa-trash"];
+    deleteIcon.classList.add(...deleteIconAttributes);
+    deleteButton.appendChild(deleteIcon);
+
+    newTask.append(circle, title, date, priority, viewButton, editButton, deleteButton);
     tasks.appendChild(newTask);
   }
 
