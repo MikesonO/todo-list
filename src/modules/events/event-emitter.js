@@ -37,6 +37,14 @@ export function eventEmitter() {
   const closeTaskButton = document.querySelector(".tModal-close-btn");
   closeTaskButton.addEventListener('click', displayModals.hideTaskModal);
 
+  const createTaskButton = document.querySelector("[data-tModal-btn='add']");
+  const taskNameInput = document.querySelector("[data-tModal-input='title']");
+  enterKey(taskNameInput, createTaskButton);
+  createTaskButton.addEventListener("click", () => {
+    createTask.addTask();
+    displayModals.hideTaskModal();
+  });
+
 
 
   
