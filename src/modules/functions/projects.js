@@ -1,9 +1,26 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
-import { Project, projectList } from "../class/project";
 
-export const createProject = (() => {
+export const project = (() => {
+
+  //List of Projects
+  let projectList = [];
+
+  //Project Class
+  class Project{
+    constructor(name, id){
+      this.name = name;
+      this.id = id;
+      this.tasks = [];
+    }
+  }
 
   const projects = document.getElementById("projects");
+
+  //Fucntions
+  const createProject = (title, id) =>{
+    const newProject = new Project(title, id);
+    projectList.push(newProject);
+  }
 
   const addProject = () =>{
     const projectNameInput = document.querySelector("[data-pModal-input='project']");
@@ -31,9 +48,10 @@ export const createProject = (() => {
 
     newProject.append(newProjectName, deleteBtn);
 
-    const project = new Project(name,`${camelize(name)}`);
-    project.addProjects(project);
+
+    createProject(name,`${camelize(name)}`);
     console.log(projectList);
+    
 
     projects.appendChild(newProject);
   }

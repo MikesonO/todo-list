@@ -1,12 +1,9 @@
 import { capitalizeFirstLetter, resetSelectedInput } from "./helper-functions";
-import { Project, projectList } from "../class/project";
+import { project } from "./projects";
 import { dateFormat } from "./dataFormat";
 import { resetInput } from "./helper-functions";
 
-
-
-
-export const createTask = (() => {
+export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
 

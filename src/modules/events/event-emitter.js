@@ -1,7 +1,7 @@
 import { displayModals } from "./display-modal";
-import { createProject } from "../functions/createProject";
+import { project } from "../functions/projects";
+import { task } from "../functions/tasks";
 import { enterKey } from "../functions/helper-functions";
-import { createTask } from "../functions/createTask";
 import { inputCheck, resetInput } from "../functions/helper-functions";
 
 
@@ -19,7 +19,7 @@ export function eventEmitter() {
     if ( inputCheck(projectNameInput) == false){
       return
     } else {
-    createProject.addProject();
+    project.addProject();
     displayModals.hideProjectModal();
     resetInput(projectNameInput);
     }
@@ -27,13 +27,13 @@ export function eventEmitter() {
 
   document.getElementById("projects").addEventListener("click", (e)=>{
     if (e.target.classList.contains("delete-btn")){
-      createProject.deleteProject(e);
+      project.deleteProject(e);
     }
   });
 
    document.querySelector("[data='allProjects']").addEventListener("click", (e)=>{
     if (e.target.matches("[data='project']")){
-      createProject.makeActive(e);
+      project.makeActive(e);
     }
   });
 
@@ -50,9 +50,9 @@ export function eventEmitter() {
     if ( inputCheck(taskNameInput) == false){
       return
     } else {
-    createTask.addTask();
+    task.addTask();
     displayModals.hideTaskModal();
-    createTask.resetTaskModal();
+    task.resetTaskModal();
     }
   });
 
