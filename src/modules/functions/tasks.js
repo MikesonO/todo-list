@@ -7,6 +7,16 @@ export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
 
+  class Task {
+    constructor(title, date, priority, descritption) {
+      this.title = title;
+      this.date = date;
+      this.priority = priority;
+      this.descritption = descritption;
+      this.done = false;
+    }
+  }
+
   const addTask = ()=>{
     //Gets Task Name Input
     const taskTitleInput = document.querySelector("[data-tModal-input='title']");
