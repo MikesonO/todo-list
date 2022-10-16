@@ -7,8 +7,11 @@ export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
 
+  //List of Tasks
+  let taskList = [];  
+
   class Task {
-    constructor(title, date, priority, descritption) {
+    constructor(project, title, date, priority, descritption) {
       this.title = title;
       this.date = date;
       this.priority = priority;
@@ -17,7 +20,16 @@ export const task = (() => {
     }
   }
 
+  //Fucntions
+  const createTask = (project, title, date, priority, descritption) =>{
+    const newTask = new Task(project, title, date, priority, descritption);
+    taskList.push(newTask);
+  }
+
+
   const addTask = ()=>{
+    const currentProject = document.querySelector("#task-view").getAttribute("data-selected-project");
+
     //Gets Task Name Input
     const taskTitleInput = document.querySelector("[data-tModal-input='title']");
     const taskTitle = taskTitleInput.value;
@@ -29,12 +41,17 @@ export const task = (() => {
     const taskPriority = taskPriorityInput.value;
     //Gets Task Description Input
     const taskDescriptionInput = document.querySelector("[data-tModal-input='description']");
-    const taskdescription = taskDescriptionInput.value;
+    const taskDescription = taskDescriptionInput.value;
 
     console.log(taskTitle);
     console.log(taskDate);
     console.log(taskPriority); 
-    console.log(taskdescription); 
+    console.log(taskDescription); 
+
+        
+    createTask(currentProject, taskTitle, taskDate, taskPriority, taskDescription);
+    console.log(taskList);
+
 
     appendTask(taskTitle, taskDate, taskPriority);
   }
