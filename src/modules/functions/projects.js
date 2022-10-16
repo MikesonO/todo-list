@@ -1,5 +1,5 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
-import { task } from "./tasks";
+import { tasks } from "./tasks";
 
 export const project = (() => {
 
@@ -80,7 +80,8 @@ export const project = (() => {
         if(project.classList.contains("active")){
           project.classList.remove("active");
           event.target.classList.add("active");
-          taskView.setAttribute("data-selected-project", `${currentProject}`)
+          taskView.setAttribute("data-selected-project", `${currentProject}`);
+          removeButton(currentProject);
           clearProject();
       }});
     } else {
@@ -92,6 +93,16 @@ export const project = (() => {
         const projectTodos = document.querySelector("#task-list");
         projectTitle.textContent = "";
         projectTodos.textContent = "";
+      }
+
+
+      const removeButton = (currentProject)=>{
+        const addTaskButton = document.querySelector("#addTask-btn");
+        if (currentProject == "today" || currentProject == "this-week"){
+          addTaskButton.style.display = "none";
+        } else {
+          addTaskButton.style.display = "flex";
+        }
       }
 
     

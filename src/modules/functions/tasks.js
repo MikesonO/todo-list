@@ -6,6 +6,8 @@ import { resetInput } from "./helper-functions";
 export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
+  const currentProject = document.querySelector("#task-view").getAttribute("data-selected-project");
+
 
   //List of Tasks
   let taskList = [];  
@@ -28,8 +30,6 @@ export const task = (() => {
 
 
   const addTask = ()=>{
-    const currentProject = document.querySelector("#task-view").getAttribute("data-selected-project");
-
     //Gets Task Name Input
     const taskTitleInput = document.querySelector("[data-tModal-input='title']");
     const taskTitle = taskTitleInput.value;
@@ -127,7 +127,8 @@ export const task = (() => {
 
   return{
     addTask,
-    resetTaskModal
+    resetTaskModal,
+    checkProjects
   }
 
 })();
