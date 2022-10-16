@@ -1,4 +1,5 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
+import { task } from "./tasks";
 
 export const project = (() => {
 
@@ -57,17 +58,21 @@ export const project = (() => {
   }
 
   const deleteProject = (event)=>{
-    console.log("deleted");
+    const inbox = document.querySelector("[data='project']");
+    const taskView = document.querySelector("#task-view");
     event.target.parentElement.remove();
+    inbox.classList.add("active");
+    taskView.setAttribute("data-selected-project", `${inbox.id}`);
     if (projects.childNodes.length === 0){
       projects.classList.remove("show");
-      
-    }
+    } 
   }
 
 
   const makeActive = (event) =>{
     const allProjects = document.querySelector("[data='allProjects']");
+    const taskView = document.querySelector("#task-view");
+    const currentProject = event.target.id;
     let checkProjects = allProjects.querySelectorAll(".active");
 
     if (checkProjects.length !== 0){
@@ -75,6 +80,7 @@ export const project = (() => {
         if(project.classList.contains("active")){
           project.classList.remove("active");
           event.target.classList.add("active");
+          taskView.setAttribute("data-selected-project", `${currentProject}`)
           clearProject();
       }});
     } else {
