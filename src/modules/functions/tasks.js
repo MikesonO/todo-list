@@ -1,12 +1,14 @@
 import { capitalizeFirstLetter, resetSelectedInput } from "./helper-functions";
-import { project } from "./projects";
+import { projectList } from "../classes/projectClass";
 import { dateFormat } from "./dataFormat";
 import { resetInput } from "./helper-functions";
+
 
 export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
   let taskView = document.querySelector("#task-view");
+
 
 
   //List of Tasks
@@ -23,11 +25,16 @@ export const task = (() => {
     }
   }
 
+
+  
   //Fucntions
   const createTask = (project, title, date, priority, descritption) =>{
-    const taskProject = taskView.getAttribute("data-selected-project");
     const newTask = new Task(project, title, date, priority, descritption);
     taskList.push(newTask);
+
+    const findProject = projectList.find(obj => obj.id === project);
+    findProject.tasks.push(newTask);
+    console.log(findProject);
   }
 
 

@@ -1,19 +1,7 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
-import { tasks } from "./tasks";
+import { Project, projectList } from "../classes/projectClass";
 
 export const project = (() => {
-
-  //List of Projects
-  let projectList = [];
-
-  //Project Class
-  class Project{
-    constructor(title, id){
-      this.title = title;
-      this.id = id;
-      this.tasks = [];
-    }
-  }
 
   const projects = document.getElementById("projects");
 
@@ -21,6 +9,8 @@ export const project = (() => {
   const createProject = (title, id) =>{
     const newProject = new Project(title, id);
     projectList.push(newProject);
+    console.log(projectList[0].id)
+
   }
 
   const addProject = () =>{
@@ -122,7 +112,8 @@ export const project = (() => {
   return{
     addProject,
     deleteProject,
-    makeActive
+    makeActive,
+    projectList
   }
 
 })();
