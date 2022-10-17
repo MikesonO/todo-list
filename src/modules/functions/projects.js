@@ -8,8 +8,8 @@ export const project = (() => {
 
   //Project Class
   class Project{
-    constructor(name, id){
-      this.name = name;
+    constructor(title, id){
+      this.title = title;
       this.id = id;
       this.tasks = [];
     }
@@ -57,6 +57,7 @@ export const project = (() => {
     projects.appendChild(newProject);
   }
 
+  //Deletes project from view and returns to Inbox
   const deleteProject = (event)=>{
     const inbox = document.querySelector("[data='project']");
     const taskView = document.querySelector("#task-view");
@@ -68,7 +69,7 @@ export const project = (() => {
     } 
   }
 
-
+  //Makes project active upon selection
   const makeActive = (event) =>{
     const allProjects = document.querySelector("[data='allProjects']");
     const taskView = document.querySelector("#task-view");
@@ -82,20 +83,29 @@ export const project = (() => {
           event.target.classList.add("active");
           taskView.setAttribute("data-selected-project", `${currentProject}`);
           removeButton(currentProject);
-          clearProject();
+          renderProject();
       }});
     } else {
         event.target.classList.add("active");
     }};
 
-    const clearProject = () =>{
-        const projectTitle = document.querySelector("#title");
+
+    const renderProject = () =>{
+      clearProjectTasks();
+      const taskId = document.querySelector("#task-view").getAttribute("data-selected-project");
+      const taskName = document.getElementById(`${taskId}`).textContent;
+      const projectTitle = document.querySelector("#title");
+      projectTitle.textContent = `${taskName}`;
+      console.log(Project.name);
+      
+    }
+
+    const clearProjectTasks = () =>{
         const projectTodos = document.querySelector("#task-list");
-        projectTitle.textContent = "";
         projectTodos.textContent = "";
       }
 
-
+      //Removes Add Task Button for Today and This Week
       const removeButton = (currentProject)=>{
         const addTaskButton = document.querySelector("#addTask-btn");
         if (currentProject == "today" || currentProject == "this-week"){

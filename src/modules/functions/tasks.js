@@ -6,7 +6,7 @@ import { resetInput } from "./helper-functions";
 export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
-  const currentProject = document.querySelector("#task-view").getAttribute("data-selected-project");
+  let taskView = document.querySelector("#task-view");
 
 
   //List of Tasks
@@ -14,6 +14,7 @@ export const task = (() => {
 
   class Task {
     constructor(project, title, date, priority, descritption) {
+      this.project = project;
       this.title = title;
       this.date = date;
       this.priority = priority;
@@ -24,12 +25,15 @@ export const task = (() => {
 
   //Fucntions
   const createTask = (project, title, date, priority, descritption) =>{
+    const taskProject = taskView.getAttribute("data-selected-project");
     const newTask = new Task(project, title, date, priority, descritption);
     taskList.push(newTask);
   }
 
 
   const addTask = ()=>{
+    //Gets Current Project Selected
+    const taskProject = taskView.getAttribute("data-selected-project");
     //Gets Task Name Input
     const taskTitleInput = document.querySelector("[data-tModal-input='title']");
     const taskTitle = taskTitleInput.value;
@@ -49,17 +53,18 @@ export const task = (() => {
     console.log(taskDescription); 
 
         
-    createTask(currentProject, taskTitle, taskDate, taskPriority, taskDescription);
+    createTask(taskProject, taskTitle, taskDate, taskPriority, taskDescription);
     console.log(taskList);
 
 
-    appendTask(taskTitle, taskDate, taskPriority);
+    appendTask(taskProject, taskTitle, taskDate, taskPriority);
   }
 
-  const appendTask = (taskTitle, taskDate, taskPriority) =>{
+  const appendTask = (taskProject, taskTitle, taskDate, taskPriority) =>{
 
     const newTask = document.createElement("div");
     newTask.setAttribute("class","task");
+    newTask.setAttribute("data-project", taskProject);
 
     const circle = document.createElement("div");
     const circleAttributes = ["circle",`${taskPriority}`];
@@ -107,6 +112,7 @@ export const task = (() => {
     deleteIcon.classList.add(...deleteIconAttributes);
     deleteButton.appendChild(deleteIcon);
 
+
     newTask.append(circle, title, date, priority, viewButton, editButton, deleteButton);
     tasks.appendChild(newTask);
   }
@@ -127,8 +133,7 @@ export const task = (() => {
 
   return{
     addTask,
-    resetTaskModal,
-    checkProjects
+    resetTaskModal
   }
 
 })();
