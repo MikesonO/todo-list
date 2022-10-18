@@ -1,5 +1,6 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
 import { Project, projectList } from "../classes/projectClass";
+import { task } from "./tasks";
 
 export const project = (() => {
 
@@ -86,8 +87,7 @@ export const project = (() => {
       const taskName = document.getElementById(`${taskId}`).textContent;
       const projectTitle = document.querySelector("#title");
       projectTitle.textContent = `${taskName}`;
-      console.log(Project.name);
-      
+      task.displayTask(taskId);
     }
 
     const clearProjectTasks = () =>{
@@ -104,6 +104,7 @@ export const project = (() => {
           addTaskButton.style.display = "flex";
         }
       }
+
 
     
   

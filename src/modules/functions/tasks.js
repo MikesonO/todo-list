@@ -24,9 +24,9 @@ export const task = (() => {
       this.done = false;
     }
   }
-
-
   
+  
+
   //Fucntions
   const createTask = (project, title, date, priority, descritption) =>{
     const newTask = new Task(project, title, date, priority, descritption);
@@ -34,7 +34,6 @@ export const task = (() => {
 
     const findProject = projectList.find(obj => obj.id === project);
     findProject.tasks.push(newTask);
-    console.log(findProject);
   }
 
 
@@ -54,15 +53,7 @@ export const task = (() => {
     const taskDescriptionInput = document.querySelector("[data-tModal-input='description']");
     const taskDescription = taskDescriptionInput.value;
 
-    console.log(taskTitle);
-    console.log(taskDate);
-    console.log(taskPriority); 
-    console.log(taskDescription); 
-
-        
     createTask(taskProject, taskTitle, taskDate, taskPriority, taskDescription);
-    console.log(taskList);
-
 
     appendTask(taskProject, taskTitle, taskDate, taskPriority);
   }
@@ -119,7 +110,6 @@ export const task = (() => {
     deleteIcon.classList.add(...deleteIconAttributes);
     deleteButton.appendChild(deleteIcon);
 
-
     newTask.append(circle, title, date, priority, viewButton, editButton, deleteButton);
     tasks.appendChild(newTask);
   }
@@ -137,10 +127,21 @@ export const task = (() => {
   }
 
 
+  const displayTask = (project) => {
+
+    let findProject = projectList.find(obj => obj.id === project);
+
+    console.log(JSON.stringify(findProject.tasks))
+  
+    findProject.tasks.forEach((task) =>{
+      appendTask(task.project, task.title, task.date, task.priority);
+  })};
+
 
   return{
     addTask,
-    resetTaskModal
+    resetTaskModal,
+    displayTask
   }
 
 })();
