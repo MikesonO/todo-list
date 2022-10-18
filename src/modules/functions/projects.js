@@ -1,5 +1,6 @@
 import { camelize, inputCheck,resetInput } from "./helper-functions";
 import { Project, projectList } from "../classes/projectClass";
+import { defaultProjects } from "./defaultProjects";
 import { task } from "./tasks";
 
 export const project = (() => {
@@ -83,7 +84,8 @@ export const project = (() => {
       }});
     } else {
         event.target.classList.add("active");
-    }};
+    }
+  };
 
 
     const renderProject = () =>{
@@ -93,6 +95,9 @@ export const project = (() => {
       const projectTitle = document.querySelector("#title");
       projectTitle.textContent = `${taskName}`;
       task.displayTask(taskId);
+      if(taskId === "inbox"){
+        defaultProjects.displayAllTasks();
+      }
     }
 
     const clearProjectTasks = () =>{
@@ -120,15 +125,13 @@ export const project = (() => {
       }
 
 
-
-
-      
   return{
     addProject,
     deleteProject,
     makeActive,
     projectList,
-    projectValidation
+    projectValidation,
+    clearProjectTasks
   }
 
 })();

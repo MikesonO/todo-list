@@ -125,7 +125,8 @@ export const task = (() => {
   return{
     addTask,
     resetTaskModal,
-    displayTask
+    displayTask,
+    appendTask
   }
 
 })();
