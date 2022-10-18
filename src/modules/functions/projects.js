@@ -47,10 +47,18 @@ export const project = (() => {
 
   //Deletes project from view and returns to Inbox
   const deleteProject = (event)=>{
+    console.log("deleted");
+    const project = event.target.parentElement;
     const inbox = document.querySelector("[data='project']");
     const taskView = document.querySelector("#task-view");
-    event.target.parentElement.remove();
+    for (var i = projectList.length - 1; i >= 0; --i) {
+      if (projectList[i].id == project.id) {
+          projectList.splice(i,1);
+      }
+  }
+    project.remove();
     inbox.classList.add("active");
+    console.log(projectList);
     taskView.setAttribute("data-selected-project", `${inbox.id}`);
     if (projects.childNodes.length === 0){
       projects.classList.remove("show");
@@ -102,8 +110,7 @@ export const project = (() => {
         }
       }
 
-
-
+      //Project validation to prevent dupiclate Project Titles
       const projectValidation = (input, projectList) =>{
         if (projectList.filter(e => e.id === `${camelize(input)}`).length > 0) {
           alert("This project title already exists. Please choose a different one");
