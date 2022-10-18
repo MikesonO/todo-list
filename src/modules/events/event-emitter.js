@@ -1,6 +1,7 @@
 import { displayModals } from "./display-modal";
 import { project } from "../functions/projects";
 import { task } from "../functions/tasks";
+import { projectList } from "../classes/projectClass";
 import { enterKey } from "../functions/helper-functions";
 import { inputCheck, resetInput } from "../functions/helper-functions";
 
@@ -16,7 +17,8 @@ export function eventEmitter() {
   const projectNameInput = document.querySelector("[data-pModal-input='project']");
   enterKey(projectNameInput, createProjectButton); //Allows Enter keypress for input
   createProjectButton.addEventListener("click", () => {
-    if ( inputCheck(projectNameInput) == false){
+    if ( inputCheck(projectNameInput) == false ||
+    project.projectValidation(projectNameInput.value, projectList) == false){
       return
     } else {
     project.addProject();

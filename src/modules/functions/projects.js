@@ -10,8 +10,6 @@ export const project = (() => {
   const createProject = (title, id) =>{
     const newProject = new Project(title, id);
     projectList.push(newProject);
-    console.log(projectList[0].id)
-
   }
 
   const addProject = () =>{
@@ -42,7 +40,6 @@ export const project = (() => {
 
 
     createProject(name,`${camelize(name)}`);
-    console.log(projectList);
     
 
     projects.appendChild(newProject);
@@ -106,6 +103,15 @@ export const project = (() => {
       }
 
 
+
+      const projectValidation = (input, projectList) =>{
+        if (projectList.filter(e => e.id === `${camelize(input)}`).length > 0) {
+          alert("This project title already exists. Please choose a different one");
+          input.value = "";
+          return false;
+        } else return true;
+      }
+
     
   
 
@@ -114,7 +120,8 @@ export const project = (() => {
     addProject,
     deleteProject,
     makeActive,
-    projectList
+    projectList,
+    projectValidation
   }
 
 })();

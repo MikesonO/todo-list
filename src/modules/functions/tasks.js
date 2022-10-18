@@ -1,3 +1,4 @@
+import { taskList, Task } from "../classes/taskClass";
 import { capitalizeFirstLetter, resetSelectedInput } from "./helper-functions";
 import { projectList } from "../classes/projectClass";
 import { dateFormat } from "./dataFormat";
@@ -8,23 +9,6 @@ export const task = (() => {
 
   const tasks = document.querySelector("#task-list");
   let taskView = document.querySelector("#task-view");
-
-
-
-  //List of Tasks
-  let taskList = [];  
-
-  class Task {
-    constructor(project, title, date, priority, descritption) {
-      this.project = project;
-      this.title = title;
-      this.date = date;
-      this.priority = priority;
-      this.descritption = descritption;
-      this.done = false;
-    }
-  }
-  
   
 
   //Fucntions
