@@ -39,17 +39,15 @@ export const project = (() => {
 
     newProject.append(newProjectName, deleteBtn);
 
-
     createProject(name,`${camelize(name)}`);
     
-
     projects.appendChild(newProject);
+    makeActive(newProject);
   }
 
   //Deletes project from view and returns to Inbox
   const deleteProject = (event)=>{
-    console.log("deleted");
-    const project = event.target.parentElement;
+    const project = event.parentElement;
     const inbox = document.querySelector("[data='project']");
     const taskView = document.querySelector("#task-view");
     for (var i = projectList.length - 1; i >= 0; --i) {
@@ -59,32 +57,33 @@ export const project = (() => {
   }
     project.remove();
     inbox.classList.add("active");
-    console.log(projectList);
     taskView.setAttribute("data-selected-project", `${inbox.id}`);
     if (projects.childNodes.length === 0){
       projects.classList.remove("show");
     } 
+    console.log(inbox);
+    makeActive(inbox);
   }
 
   //Makes project active upon selection
   const makeActive = (event) =>{
     const allProjects = document.querySelector("[data='allProjects']");
     const taskView = document.querySelector("#task-view");
-    const currentProject = event.target.id;
+    const currentProject = event.id;
     let checkProjects = allProjects.querySelectorAll(".active");
 
     if (checkProjects.length !== 0){
       checkProjects.forEach(project =>{
         if(project.classList.contains("active")){
           project.classList.remove("active");
-          event.target.classList.add("active");
+          event.classList.add("active");
           taskView.setAttribute("data-selected-project", `${currentProject}`);
           removeButton(currentProject);
-          renderProject();
       }});
     } else {
-        event.target.classList.add("active");
+        event.classList.add("active");
     }
+    renderProject();
   };
 
 

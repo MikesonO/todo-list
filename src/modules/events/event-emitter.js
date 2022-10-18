@@ -29,13 +29,13 @@ export function eventEmitter() {
 
   document.getElementById("projects").addEventListener("click", (e)=>{
     if (e.target.classList.contains("delete-btn")){
-      project.deleteProject(e);
+      project.deleteProject(e.target);
     }
   });
 
    document.querySelector("[data='allProjects']").addEventListener("click", (e)=>{
     if (e.target.matches("[data='project']")){
-      project.makeActive(e);
+      project.makeActive(e.target);
     }
   });
 
