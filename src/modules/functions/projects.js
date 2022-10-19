@@ -96,6 +96,8 @@ export const project = (() => {
       task.displayTask(taskId);
       if(taskId === "inbox"){
         defaultProjects.displayAllTasks();
+      }else if (taskId === "today"){
+        defaultProjects.displayTodaysTasks();
       }
     }
 
