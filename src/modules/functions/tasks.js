@@ -122,11 +122,22 @@ export const task = (() => {
   })};
 
 
+   //Project validation to prevent dupiclate Project Titles
+   const taskValidation = (input, taskList) =>{
+    if (taskList.filter(e => e.title === input).length > 0) {
+      alert("This task title already exists. Please choose a different one");
+      return false;
+    } else return true;
+  }
+
+
+
   return{
     addTask,
     resetTaskModal,
     displayTask,
-    appendTask
+    appendTask,
+    taskValidation
   }
 
 })();
