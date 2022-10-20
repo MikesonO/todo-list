@@ -16,13 +16,25 @@ export const defaultProjects = (() => {
   }
 
   const displayTodaysTasks = () => {
-    let today = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
-    today = dateFormat.getDate(today);
-
+    let today = dateFormat.getDate(dateFormat.today);
     projectList.forEach((project) => {
       project.tasks.forEach((task) => {
         if (task.date === today) {
           getTasks.appendTask(task.project, task.title, task.date, task.priority);
+        }
+      });
+    })
+  }
+
+
+  const displayThisWeeksTasks = () => {
+    projectList.forEach((project) => {
+      project.tasks.forEach((task) => {
+        if (dateFormat.getWeek(task.date) == true) {
+          console.log(task.date);
+          getTasks.appendTask(task.project, task.title, task.date, task.priority);
+        } else {
+          console.log("dummy");
         }
       });
     })
@@ -36,10 +48,10 @@ export const defaultProjects = (() => {
 
 
 
-
   return {
     displayAllTasks,
-    displayTodaysTasks
+    displayTodaysTasks,
+    displayThisWeeksTasks
   }
 
 })();

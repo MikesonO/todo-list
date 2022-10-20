@@ -98,6 +98,8 @@ export const project = (() => {
         defaultProjects.displayAllTasks();
       }else if (taskId === "today"){
         defaultProjects.displayTodaysTasks();
+      }else if (taskId === "this-week"){
+        defaultProjects.displayThisWeeksTasks();
       }
     }
 
