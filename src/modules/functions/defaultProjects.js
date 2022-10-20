@@ -33,9 +33,7 @@ export const defaultProjects = (() => {
         if (dateFormat.getWeek(task.date) == true) {
           console.log(task.date);
           getTasks.appendTask(task.project, task.title, task.date, task.priority);
-        } else {
-          console.log("dummy");
-        }
+        } 
       });
     })
   }

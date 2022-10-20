@@ -477,6 +477,9 @@ button{
   color: var(--color4);
 }
 
+.task-view-button svg,
+.task-edit-button svg,
+.task-delete-button svg,
 .delete-btn svg{
   pointer-events: none;
 }

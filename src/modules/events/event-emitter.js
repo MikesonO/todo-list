@@ -4,6 +4,8 @@ import { task } from "../functions/tasks";
 import { projectList } from "../classes/projectClass";
 import { enterKey } from "../functions/helper-functions";
 import { inputCheck, resetInput } from "../functions/helper-functions";
+import { taskControls } from "./task-controls";
+import { taskList } from "../classes/taskClass";
 
 
 export function eventEmitter() {
@@ -49,7 +51,8 @@ export function eventEmitter() {
   const taskNameInput = document.querySelector("[data-tModal-input='title']");
   enterKey(taskNameInput, createTaskButton);
   createTaskButton.addEventListener("click", () => {
-    if ( inputCheck(taskNameInput) == false){
+    if ( inputCheck(taskNameInput) == false ||
+    task.taskValidation(taskNameInput.value, taskList) == false){
       return
     } else {
     task.addTask();
@@ -58,7 +61,8 @@ export function eventEmitter() {
     }
   });
 
+  taskControls.controls();
 
-  
+
   
 }
