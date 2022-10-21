@@ -2,6 +2,7 @@ import { camelize, inputCheck,resetInput } from "./helper-functions";
 import { Project, projectList } from "../classes/projectClass";
 import { defaultProjects } from "./defaultProjects";
 import { task } from "./tasks";
+import { taskList } from "../classes/taskClass";
 
 export const project = (() => {
 
@@ -61,7 +62,6 @@ export const project = (() => {
     if (projects.childNodes.length === 0){
       projects.classList.remove("show");
     } 
-    console.log(inbox);
     makeActive(inbox);
   }
 

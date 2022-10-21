@@ -1,4 +1,6 @@
+import { projectList } from "../classes/projectClass";
 import { taskList } from "../classes/taskClass";
+import { project } from "../functions/projects";
 
 export const taskControls = (() => {
 
@@ -23,14 +25,24 @@ export const taskControls = (() => {
         let taskTitle = task.querySelector(".task-title").textContent;
         console.log(target);
         console.log(taskTitle);
+
+
+
+
+
         for (var i = taskList.length - 1; i >= 0; --i) {
           if (taskList[i].title == taskTitle) {
+            const getProject = taskList[i].project;
+            const projectIndex = projectList.findIndex(obj => obj.id === getProject);
+            const getProjectTask = projectList[projectIndex].tasks.findIndex(obj => obj.title === taskList[i].title);
+            
+            projectList[projectIndex].tasks.splice(getProjectTask, 1);
             taskList.splice(i, 1);
+            
           }
         }
-        task.remove();
 
-        console.log(taskList);
+        task.remove();
 
       }
 
