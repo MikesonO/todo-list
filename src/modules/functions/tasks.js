@@ -123,9 +123,12 @@ export const task = (() => {
 
 
    //Project validation to prevent dupiclate Project Titles
-   const taskValidation = (input, taskList) =>{
-    if (taskList.filter(e => e.title === input).length > 0) {
-      alert("This task title already exists. Please choose a different one");
+   const taskValidation = (input) =>{
+    const taskProject = taskView.getAttribute("data-selected-project");
+    const projectIndex = projectList.findIndex(obj => obj.id === taskProject);    
+    if (projectList[projectIndex].tasks.filter(e => e.title === input).length > 0) {
+      alert("This task title already exists in this project. Please choose a different one");
+     
       return false;
     } else return true;
   }

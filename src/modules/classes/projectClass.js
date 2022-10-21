@@ -10,7 +10,7 @@
       "tasks": []
     }, {
       "title": "This Week",
-      "id": "this-week",
+      "id": "thisWeek",
       "tasks": []
     }
   ];

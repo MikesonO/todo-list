@@ -98,7 +98,7 @@ export const project = (() => {
         defaultProjects.displayAllTasks();
       }else if (taskId === "today"){
         defaultProjects.displayTodaysTasks();
-      }else if (taskId === "this-week"){
+      }else if (taskId === "thisWeek"){
         defaultProjects.displayThisWeeksTasks();
       }
     }
@@ -111,7 +111,7 @@ export const project = (() => {
       //Removes Add Task Button for Today and This Week
       const removeButton = (currentProject)=>{
         const addTaskButton = document.querySelector("#addTask-btn");
-        if (currentProject == "today" || currentProject == "this-week"){
+        if (currentProject == "today" || currentProject == "thisWeek"){
           addTaskButton.style.display = "none";
         } else {
           addTaskButton.style.display = "flex";
@@ -122,7 +122,6 @@ export const project = (() => {
       const projectValidation = (input, projectList) =>{
         if (projectList.filter(e => e.id === `${camelize(input)}`).length > 0) {
           alert("This project title already exists. Please choose a different one");
-          input.value = "";
           return false;
         } else return true;
       }

@@ -5,7 +5,7 @@ import { projectList } from "../classes/projectClass";
 import { enterKey } from "../functions/helper-functions";
 import { inputCheck, resetInput } from "../functions/helper-functions";
 import { taskControls } from "./task-controls";
-import { taskList } from "../classes/taskClass";
+
 
 
 export function eventEmitter() {
@@ -13,7 +13,10 @@ export function eventEmitter() {
   addProjectButton.addEventListener("click", displayModals.showProjectModal);
 
   const closeProjectButton = document.querySelector(".pModal-close-btn");
-  closeProjectButton.addEventListener('click', displayModals.hideProjectModal);
+  closeProjectButton.addEventListener('click', ()=>{
+    resetInput(projectNameInput);
+    displayModals.hideProjectModal();
+  });
 
   const createProjectButton = document.querySelector("[data-pModal-btn='add']");
   const projectNameInput = document.querySelector("[data-pModal-input='project']");
@@ -21,6 +24,7 @@ export function eventEmitter() {
   createProjectButton.addEventListener("click", () => {
     if ( inputCheck(projectNameInput) == false ||
     project.projectValidation(projectNameInput.value, projectList) == false){
+      resetInput(projectNameInput);
       return
     } else {
     project.addProject();
@@ -45,14 +49,18 @@ export function eventEmitter() {
   addTaskButton.addEventListener("click", displayModals.showTaskModal);
 
   const closeTaskButton = document.querySelector(".tModal-close-btn");
-  closeTaskButton.addEventListener('click', displayModals.hideTaskModal);
+  closeTaskButton.addEventListener('click', () =>{
+    task.resetTaskModal();
+    displayModals.hideTaskModal();
+  });
 
   const createTaskButton = document.querySelector("[data-tModal-btn='add']");
   const taskNameInput = document.querySelector("[data-tModal-input='title']");
   enterKey(taskNameInput, createTaskButton);
   createTaskButton.addEventListener("click", () => {
     if ( inputCheck(taskNameInput) == false ||
-    task.taskValidation(taskNameInput.value, taskList) == false){
+    task.taskValidation(taskNameInput.value) == false){
+      resetInput(taskNameInput);
       return
     } else {
     task.addTask();
