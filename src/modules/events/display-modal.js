@@ -56,7 +56,7 @@ export const displayModals = (() => {
   }
   taskPriority.textContent = capitalizeFirstLetter(obj.priority);
 
-  if(!obj.description){
+  if(!obj.description || obj.description.trim() == ""){
     taskDescription.textContent = "N/A";
   } else {
     taskDescription.textContent = obj.description;

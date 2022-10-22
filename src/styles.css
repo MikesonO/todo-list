@@ -271,12 +271,14 @@ button{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 375px;
 }
 
 .tViewModal-bottom,
 .tModal-bottom{
   flex: 1 1 auto;
   padding: 1rem;
+  width: 375px;
 }
 
 .tViewContent,
@@ -286,7 +288,6 @@ button{
   width:100%;
   height: 100%;
   gap: 1rem;
-  
 }
 
 .tModal-bottom label,
@@ -341,6 +342,7 @@ button{
 
 .task-title{
   flex:1;
+  word-break: break-word;
 }
 
 .task-description{
@@ -388,6 +390,20 @@ button{
 .required-symbol{
   color: var(--color4);
 }
+
+.task-project-container,
+.task-title-container,
+.task-description-contianer{
+  width: 100%;
+  height: 50px;
+  overflow-y: scroll;
+  word-wrap:break-word;
+}
+
+.task-description-contianer{
+  height: 100px;
+}
+
 
 /* ID SELECTORS */
 
