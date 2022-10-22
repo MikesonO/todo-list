@@ -3,12 +3,12 @@
 
   //Task Class
   class Task {
-    constructor(project, title, date, priority, descritption) {
+    constructor(project, title, date, priority, description) {
       this.project = project;
       this.title = title;
       this.date = date;
       this.priority = priority;
-      this.descritption = descritption;
+      this.description = description;
       this.done = false;
     }
   }

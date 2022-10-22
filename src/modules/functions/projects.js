@@ -25,7 +25,7 @@ export const project = (() => {
 
     const newProject = document.createElement("div"); //Creates New Project div
     newProject.setAttribute("class","left-rows");
-    newProject.setAttribute("data","project")
+    newProject.setAttribute("data","project");
     newProject.setAttribute("id",`${camelize(name)}`);
 
     const newProjectName = document.createElement("p"); //Display Project Name

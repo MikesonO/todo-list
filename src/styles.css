@@ -25,6 +25,7 @@ body{
   height: 100vh;
   grid-template-rows: 80px auto 35px;
   font-family: 'Poppins', sans-serif;
+  background-color: var(--color3);
 }
 
 header{
@@ -152,12 +153,13 @@ button{
 }
 
 .pModal-close-btn,
-.tModal-close-btn{
+.tModal-close-btn,
+.tViewModal-close-btn{
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .close-icon{
-  cursor: pointer;
   color: var(--color4);
   transition: 0.15s;
 }
@@ -212,7 +214,7 @@ button{
   background-color: var(--color3);
 }
 
-
+.tViewModal-container,
 .tModal-container{
   display: none;
   position: fixed; 
@@ -229,12 +231,15 @@ button{
 }
 
 
+.tViewModal-container:has(.tViewModal.active),
 .tModal-container:has(.tModal.active){
   animation: blur-in .4s 1;
   backdrop-filter: blur(5px);
   opacity: 1;
 }
 
+
+.tViewModal,
 .tModal{
   position: absolute;
   top: 50%;
@@ -250,11 +255,13 @@ button{
   animation: slideOut .5s 1;
 }
 
+.tViewModal.active,
 .tModal.active{
   animation: slideIn .5s 1 ease-in;
 }
 
 
+.tViewModal-top,
 .tModal-top{
   background-color: var(--color2);
   color: var(--color1);
@@ -266,10 +273,13 @@ button{
   justify-content: space-between;
 }
 
+.tViewModal-bottom,
 .tModal-bottom{
   flex: 1 1 auto;
   padding: 1rem;
 }
+
+.tViewContent,
 .tModal-bottom form{
   display: flex;
   flex-direction: column;
@@ -480,6 +490,7 @@ button{
 .task-view-button svg,
 .task-edit-button svg,
 .task-delete-button svg,
+.tViewModal-close-btn svg:active,
 .delete-btn svg{
   pointer-events: none;
 }
