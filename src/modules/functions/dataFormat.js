@@ -23,8 +23,7 @@ export const dateFormat = (() => {
      return dateFns.format(new Date(input), "yyyy-MM-dd");
    };
 
-
-   const getWeek = (input) =>{   //Should filter the days
+   const getWeek = (input) =>{
     if (!input){
       return 
     } else {

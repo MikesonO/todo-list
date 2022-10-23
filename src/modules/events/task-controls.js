@@ -1,6 +1,7 @@
 import { projectList } from "../classes/projectClass";
 import { taskList } from "../classes/taskClass";
 import { project } from "../functions/projects";
+import { task } from "../functions/tasks";
 import { displayModals } from "./display-modal";
 
 export const taskControls = (() => {
@@ -25,6 +26,36 @@ export const taskControls = (() => {
 
       if (target.className === "tViewModal-close-btn"){
         displayModals.hideTaskViewModal();
+      }
+
+      if (target.parentElement.classList.contains("task") &&
+      target.className !== "task-view-button" &&
+      target.className !== "task-edit-button" &&
+      target.className !== "task-delete-button"){
+
+
+        const currentProject = document.querySelector(".task").dataset.project;
+
+        const projectIndex = projectList.findIndex(obj => obj.id == currentProject);
+
+       
+        const parent = target.parentElement;
+
+        console.log(parent);
+
+        const selectedTask = parent.querySelector(".task-title").textContent;
+
+        console.log(selectedTask);
+
+     
+
+    
+
+        const taskIndex = projectList[projectIndex].tasks.findIndex(obj => obj.title == selectedTask);
+
+        task.completedTask(projectList[projectIndex].tasks[taskIndex]);
+        console.log(projectList[projectIndex].tasks[taskIndex].done);
+        target.parentElement.classList.toggle("checked");  
       }
 
       //Edit Button

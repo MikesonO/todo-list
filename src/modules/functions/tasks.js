@@ -166,6 +166,16 @@ export const task = (() => {
   }
 
 
+  const completedTask = (e) =>{
+    if (e.done == false){
+      e.done = true;
+      console.log("works");
+    } else {
+      e.done = false;
+    }
+  }
+
+
 
   return {
     addTask,
@@ -173,7 +183,8 @@ export const task = (() => {
     displayTask,
     appendTask,
     taskValidation,
-    editTask
+    editTask,
+    completedTask
   }
 
 })();

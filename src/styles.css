@@ -348,6 +348,10 @@ button{
   box-shadow: var(--box-shadow) 0px 3px 8px;
 }
 
+.task.checked .task-title{
+  text-decoration: line-through;
+}
+
 .task-title{
   flex:1;
   word-break: break-word;
@@ -374,6 +378,10 @@ button{
   width: 90px;
   text-shadow: 0 0 1.5px var(--box-shadow);
   padding-right: .5rem;
+}
+
+.priority *{
+  pointer-events: none;
 }
 
 .high{
