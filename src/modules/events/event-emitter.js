@@ -9,15 +9,18 @@ import { taskControls } from "./task-controls";
 
 
 export function eventEmitter() {
+  //Add Project Button
   const addProjectButton = document.querySelector("#addProject-btn");
   addProjectButton.addEventListener("click", displayModals.showProjectModal);
 
+  //Close Project Modal
   const closeProjectButton = document.querySelector(".pModal-close-btn");
   closeProjectButton.addEventListener('click', ()=>{
     resetInput(projectNameInput);
     displayModals.hideProjectModal();
   });
 
+  //Create Project Button
   const createProjectButton = document.querySelector("[data-pModal-btn='add']");
   const projectNameInput = document.querySelector("[data-pModal-input='project']");
   enterKey(projectNameInput, createProjectButton); //Allows Enter keypress for input
@@ -33,27 +36,33 @@ export function eventEmitter() {
     }
   });
 
+  //Delete Project Button
   document.getElementById("projects").addEventListener("click", (e)=>{
     if (e.target.classList.contains("delete-btn")){
       project.deleteProject(e.target);
     }
   });
 
+  //Makes Selected Project Active
    document.querySelector("[data='allProjects']").addEventListener("click", (e)=>{
     if (e.target.matches("[data='project']")){
       project.makeActive(e.target);
     }
   });
 
+  //Add Task Button
   const addTaskButton = document.querySelector("#addTask-btn");
   addTaskButton.addEventListener("click", displayModals.showTaskModal);
 
+
+  //Close Task Modal 
   const closeTaskButton = document.querySelector(".tModal-close-btn");
   closeTaskButton.addEventListener('click', () =>{
     task.resetTaskModal();
     displayModals.hideTaskModal();
   });
 
+  //Create Task Button
   const createTaskButton = document.querySelector("[data-tModal-btn='add']");
   const taskNameInput = document.querySelector("[data-tModal-input='title']");
   enterKey(taskNameInput, createTaskButton);
@@ -69,8 +78,8 @@ export function eventEmitter() {
     }
   });
 
+  //Task Controls - View, Edit and Delete
   taskControls.controls();
-
 
   
 }

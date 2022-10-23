@@ -19,13 +19,18 @@ export const dateFormat = (() => {
    }};
 
 
+   const formatDate = (input) => {
+     return dateFns.format(new Date(input), "yyyy-MM-dd");
+   };
+
+
    const getWeek = (input) =>{   //Should filter the days
     if (!input){
       return 
     } else {
       let i = 0;
-      while (getDate(today.addDays(i)) != getDate(dateFns.nextMonday(today))){
-        if (input == getDate(today.addDays(i))){
+      while (formatDate(today.addDays(i)) != formatDate(dateFns.nextMonday(today))){
+        if (input == formatDate(today.addDays(i))){
           return true;
         }
         i++;
@@ -36,7 +41,8 @@ export const dateFormat = (() => {
   return{
     today,
     getDate,
-    getWeek
+    getWeek,
+    formatDate
   }
 
 })();

@@ -133,7 +133,8 @@ export const project = (() => {
     makeActive,
     projectList,
     projectValidation,
-    clearProjectTasks
+    clearProjectTasks,
+    renderProject
   }
 
 })();

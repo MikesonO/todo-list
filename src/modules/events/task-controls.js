@@ -23,14 +23,19 @@ export const taskControls = (() => {
         console.log(taskList);
       }
 
-      console.log(target);
       if (target.className === "tViewModal-close-btn"){
         displayModals.hideTaskViewModal();
       }
 
       //Edit Button
       if (target.className === "task-edit-button") {
+        let task = target.parentElement;
+        let taskTitle = task.querySelector(".task-title").textContent;
+        let taskProject = task.dataset.project;
 
+        const selectedTask = taskList.findIndex(obj => obj.title == taskTitle && obj.project == taskProject);
+
+        displayModals.displayTaskEditModal(taskList[selectedTask]);
       }
 
 
@@ -40,10 +45,6 @@ export const taskControls = (() => {
         let taskTitle = task.querySelector(".task-title").textContent;
         console.log(target);
         console.log(taskTitle);
-
-
-
-
 
         for (var i = taskList.length - 1; i >= 0; --i) {
           if (taskList[i].title == taskTitle) {

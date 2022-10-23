@@ -214,6 +214,14 @@ button{
   background-color: var(--color3);
 }
 
+[data-tModal-btn="add"]{
+  display: block;
+}
+
+[data-tModal-btn="edit"]{
+  display: none;
+}
+
 .tViewModal-container,
 .tModal-container{
   display: none;

@@ -1,6 +1,7 @@
 import { task as getTasks } from "./tasks";
 import { projectList } from "../classes/projectClass";
 import { dateFormat } from "./dataFormat";
+import { projects } from "./projects";
 
 export const defaultProjects = (() => {
 
@@ -13,17 +14,18 @@ export const defaultProjects = (() => {
         });
       }
     });
+
   }
 
   const displayTodaysTasks = () => {
-    let today = dateFormat.getDate(dateFormat.today);
+    let today = dateFormat.formatDate(dateFormat.today);
     projectList.forEach((project) => {
       project.tasks.forEach((task) => {
         if (task.date === today) {
           getTasks.appendTask(task.project, task.title, task.date, task.priority);
         }
       });
-    })
+    });
   }
 
 
@@ -35,7 +37,7 @@ export const defaultProjects = (() => {
           getTasks.appendTask(task.project, task.title, task.date, task.priority);
         } 
       });
-    })
+    });
   }
 
 

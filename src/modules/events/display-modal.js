@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from "../functions/helper-functions";
+import { task } from "../functions/tasks";
 
 export const displayModals = (() => {
   const projectModal = document.querySelector("[data-modal='new-project']");
@@ -77,6 +78,50 @@ export const displayModals = (() => {
   }
 }
 
+const displayTaskEditModal = (obj) =>{
+  const taskModalTitle = document.querySelector(".tModal-title h2");
+  const tModalAddBtn = document.querySelector("[data-tModal-btn='add']");
+  const tModalEditBtn = document.querySelector("[data-tModal-btn='edit']");
+
+   const taskTitleInput = document.querySelector("[data-tModal-input='title']");
+   const taskDateInput = document.querySelector("[data-tModal-input='date']");
+   const taskPriorityInput = document.querySelector("[data-tModal-input='priority']");
+   const taskDescriptionInput = document.querySelector("[data-tModal-input='description']");
+   
+    taskModal.setAttribute("data-modal", "edit"); 
+
+
+    tModalAddBtn.style.display = "none";
+    tModalEditBtn.style.display = "block";
+    taskModalTitle.textContent = "Edit Task";
+
+    taskTitleInput.value = obj.title;
+    taskDateInput.value = obj.date;
+    taskPriorityInput.value = obj.priority;
+    taskDescriptionInput.value = obj.description; 
+
+    let title = "";
+    let date = "";
+    let priority = "";
+    let description = "";
+
+    taskModal.addEventListener("mousedown", function() {
+       title = taskTitleInput.value; 
+       date = taskDateInput.value;
+       priority = taskPriorityInput.value;
+       description = taskDescriptionInput.value;
+  }, false);
+
+    tModalEditBtn.addEventListener("click", ()=>{
+      
+    task.editTask(obj, title, date, priority, description);
+    hideTaskModal();
+
+  });
+  showTaskModal();
+}
+
+
 
 
  return{
@@ -86,7 +131,8 @@ export const displayModals = (() => {
    hideTaskModal,
    showTaskViewModal,
    displayTaskViewContent,
-   hideTaskViewModal
+   hideTaskViewModal,
+   displayTaskEditModal
  }
  
  })();
