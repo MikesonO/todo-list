@@ -52,6 +52,10 @@ export const task = (() => {
     const circle = document.createElement("div");
     const circleAttributes = ["circle", `${taskPriority}`];
     circle.classList.add(...circleAttributes);
+    const check = document.createElement("svg");
+    const checkAttributes = ["check", "fa-solid", "fa-check"];
+    check.classList.add(...checkAttributes);
+    circle.appendChild(check);
 
     const title = document.createElement("div");
     title.setAttribute("class", "task-title");

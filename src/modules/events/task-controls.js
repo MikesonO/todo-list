@@ -47,15 +47,16 @@ export const taskControls = (() => {
 
         console.log(selectedTask);
 
-     
+        const checkIcon = parent.querySelector(".check");
 
-    
-
+        
         const taskIndex = projectList[projectIndex].tasks.findIndex(obj => obj.title == selectedTask);
 
         task.completedTask(projectList[projectIndex].tasks[taskIndex]);
         console.log(projectList[projectIndex].tasks[taskIndex].done);
-        target.parentElement.classList.toggle("checked");  
+
+        parent.classList.toggle("checked");  
+        checkIcon.classList.toggle("active");
       }
 
       //Edit Button
