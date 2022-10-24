@@ -298,6 +298,10 @@ button{
   gap: 1rem;
 }
 
+.tViewContent{
+  gap: 2rem;
+}
+
 .tModal-bottom label,
 .tModal-bottom input{
   display: block;
@@ -439,7 +443,7 @@ button{
 .task-title-container,
 .task-description-contianer{
   width: 100%;
-  height: 50px;
+  height: 24px;
   overflow-y: scroll;
   word-wrap:break-word;
 }
