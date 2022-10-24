@@ -20,8 +20,6 @@ export const taskControls = (() => {
 
         displayModals.showTaskViewModal();
         displayModals.displayTaskViewContent(taskList[selectedTask]);
-
-        console.log(taskList);
       }
 
       if (target.className === "tViewModal-close-btn"){
@@ -34,29 +32,44 @@ export const taskControls = (() => {
       target.className !== "task-delete-button"){
 
 
-        const currentProject = document.querySelector(".task").dataset.project;
+        let allTasks = document.querySelectorAll(".task")
+        
 
-        const projectIndex = projectList.findIndex(obj => obj.id == currentProject);
+        allTasks.forEach(selectedTask => {
+          if(target.parentElement == selectedTask){
+          const currentProject = selectedTask.dataset.project;
+          console.log(currentProject);
 
-       
-        const parent = target.parentElement;
+          const projectIndex = projectList.findIndex(obj => obj.id == currentProject);
 
-        console.log(parent);
 
-        const selectedTask = parent.querySelector(".task-title").textContent;
-
-        console.log(selectedTask);
-
-        const checkIcon = parent.querySelector(".check");
+          const parent = target.parentElement;
+  
+          const taskTitle = parent.querySelector(".task-title").textContent;
+  
+          const checkIcon = parent.querySelector(".check");
+  
+          
+          const taskIndex = projectList[projectIndex].tasks.findIndex(obj => obj.title == taskTitle);
+  
+          task.completedTask(projectList[projectIndex].tasks[taskIndex]);
+  
+          parent.classList.toggle("checked");  
+          checkIcon.classList.toggle("active");
+          
+          }
+        })
+        // allTasks.forEach(task => {
+        //   const currentProject = task.dataset.project;
 
         
-        const taskIndex = projectList[projectIndex].tasks.findIndex(obj => obj.title == selectedTask);
+        //   const parent = target.parentElement;
+        //   console.log(parent);
+          
+        // })
+        
+       
 
-        task.completedTask(projectList[projectIndex].tasks[taskIndex]);
-        console.log(projectList[projectIndex].tasks[taskIndex].done);
-
-        parent.classList.toggle("checked");  
-        checkIcon.classList.toggle("active");
       }
 
       //Edit Button

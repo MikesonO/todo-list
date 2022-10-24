@@ -13,8 +13,8 @@ export const task = (() => {
 
 
   //Fucntions
-  const createTask = (project, title, date, priority, descritption) => {
-    const newTask = new Task(project, title, date, priority, descritption);
+  const createTask = (project, title, date, priority, descritption, done) => {
+    const newTask = new Task(project, title, date, priority, descritption, done);
     taskList.push(newTask);
 
     const findProject = projectList.find(obj => obj.id === project);
@@ -38,14 +38,16 @@ export const task = (() => {
     const taskDescriptionInput = document.querySelector("[data-tModal-input='description']");
     const taskDescription = taskDescriptionInput.value;
 
-    createTask(taskProject, taskTitle, taskDate, taskPriority, taskDescription);
+    const done = false;
 
-    appendTask(taskProject, taskTitle, taskDate, taskPriority);
+    createTask(taskProject, taskTitle, taskDate, taskPriority, taskDescription, done);
+
+    appendTask(taskProject, taskTitle, taskDate, taskPriority, done);
   }
 
-  const appendTask = (taskProject, taskTitle, taskDate, taskPriority) => {
+  const appendTask = (taskProject, taskTitle, taskDate, taskPriority, done) => {
 
-    const newTask = document.createElement("div");
+    let newTask = document.createElement("div");
     newTask.setAttribute("class", "task");
     newTask.setAttribute("data-project", taskProject);
 
@@ -56,6 +58,11 @@ export const task = (() => {
     const checkAttributes = ["check", "fa-solid", "fa-check"];
     check.classList.add(...checkAttributes);
     circle.appendChild(check);
+
+    if(done){
+      newTask.classList.add("checked");
+      check.classList.add("active");
+    }
 
     const title = document.createElement("div");
     title.setAttribute("class", "task-title");
@@ -147,13 +154,9 @@ export const task = (() => {
 
 
   const displayTask = (project) => {
-
     let findProject = projectList.find(obj => obj.id === project);
-
-    console.log(JSON.stringify(findProject.tasks))
-
     findProject.tasks.forEach((task) => {
-      appendTask(task.project, task.title, task.date, task.priority);
+      appendTask(task.project, task.title, task.date, task.priority, task.done);
     })
   };
 
@@ -173,13 +176,11 @@ export const task = (() => {
   const completedTask = (e) =>{
     if (e.done == false){
       e.done = true;
-      console.log("works");
     } else {
       e.done = false;
     }
+    project.renderProject();
   }
-
-
 
   return {
     addTask,

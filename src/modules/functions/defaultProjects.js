@@ -10,7 +10,8 @@ export const defaultProjects = (() => {
     projectList.forEach((project) => {
       if (project.id !== "inbox") {
         project.tasks.forEach((task) => {
-          getTasks.appendTask(task.project, task.title, task.date, task.priority);
+          console.log(project.tasks.done);
+          getTasks.appendTask(task.project, task.title, task.date, task.priority, task.done);
         });
       }
     });
@@ -22,7 +23,7 @@ export const defaultProjects = (() => {
     projectList.forEach((project) => {
       project.tasks.forEach((task) => {
         if (task.date === today) {
-          getTasks.appendTask(task.project, task.title, task.date, task.priority);
+          getTasks.appendTask(task.project, task.title, task.date, task.priority, task.done);
         }
       });
     });
@@ -34,12 +35,21 @@ export const defaultProjects = (() => {
       project.tasks.forEach((task) => {
         if (dateFormat.getWeek(task.date) == true) {
           console.log(task.date);
-          getTasks.appendTask(task.project, task.title, task.date, task.priority);
+          getTasks.appendTask(task.project, task.title, task.date, task.priority, task.done);
         } 
       });
     });
   }
 
+  const displayCompletedTasks = () => {
+    projectList.forEach((project) => {
+      project.tasks.forEach((task) => {
+        if (task.done == true) {
+          getTasks.appendTask(task.project, task.title, task.date, task.priority, task.done);
+        }
+      });
+    });
+  } 
 
 
 
@@ -51,7 +61,8 @@ export const defaultProjects = (() => {
   return {
     displayAllTasks,
     displayTodaysTasks,
-    displayThisWeeksTasks
+    displayThisWeeksTasks,
+    displayCompletedTasks
   }
 
 })();

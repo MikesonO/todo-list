@@ -12,6 +12,10 @@
       "title": "This Week",
       "id": "thisWeek",
       "tasks": []
+    }, {
+      "title": "Completed",
+      "id": "completed",
+      "tasks": []
     }
   ];
 

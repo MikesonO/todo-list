@@ -100,6 +100,8 @@ export const project = (() => {
         defaultProjects.displayTodaysTasks();
       }else if (taskId === "thisWeek"){
         defaultProjects.displayThisWeeksTasks();
+      }else if (taskId === "completed"){
+        defaultProjects.displayCompletedTasks();
       }
     }
 
@@ -111,7 +113,7 @@ export const project = (() => {
       //Removes Add Task Button for Today and This Week
       const removeButton = (currentProject)=>{
         const addTaskButton = document.querySelector("#addTask-btn");
-        if (currentProject == "today" || currentProject == "thisWeek"){
+        if (currentProject == "today" || currentProject == "thisWeek" || currentProject == "completed"){
           addTaskButton.style.display = "none";
         } else {
           addTaskButton.style.display = "flex";
