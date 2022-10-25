@@ -371,6 +371,7 @@ button{
   word-break: break-word;
 }
 
+
 .task-description{
   white-space: pre-wrap;
     overflow-wrap: normal;
@@ -490,6 +491,10 @@ button{
   margin: 0 auto;
 }
 
+#title{
+  word-break: break-word;
+}
+
 #addProject-btn,
 #addTask-btn{
   font-size: 1.2rem;
@@ -530,6 +535,10 @@ button{
 #projects .left-rows{
   display: flex;
   justify-content: space-between;
+}
+
+.left-rows p{
+  word-break: break-word;
 }
 
 .left-rows.active{
@@ -603,6 +612,7 @@ button{
   width: fit-content;
 }
 
+/* ANIMATIONS */
 @keyframes blur-in {
   from {
     backdrop-filter: blur(0px);
@@ -637,7 +647,72 @@ button{
   }
 }
 
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1050px) {
+  main{
+    flex-direction: column;
+  }
+  
+  
+  #left-panel{
+    flex-direction: row;
+  }
 
-/* top: 50%;
-left: 50%;
-transform: translate(-50%, -50%); */
+  #left-top-panel,
+  #left-bottom-panel{
+    flex:1;
+  }
+
+}
+
+@media only screen and (max-width: 750px) {
+
+  #left-panel{
+    flex-direction: column;
+  }
+
+  #left-top-panel,
+  #left-bottom-panel{
+   width: 100%;
+  }
+
+  #task-view{
+    width: 100%;
+  }
+
+  .task{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    position: relative;
+  }
+
+
+  .task:hover{
+    padding-bottom: 2rem;
+  }
+
+  .task button{
+    position: absolute;
+    justify-self: flex-end;
+  }
+
+  .task-view-button{
+    bottom: 0;
+    left: 5rem;
+    margin-bottom: .5rem;
+  }
+
+  .task-edit-button{
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-bottom: .5rem;
+  }
+
+  .task-delete-button{
+    bottom: 0;
+    right: 5rem;
+    margin-bottom: .5rem;
+  }
+  }
