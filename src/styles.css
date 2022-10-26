@@ -323,14 +323,6 @@ button{
   gap: 1rem;
 }
 
-.overdue{
-  width:fit-content;
-  background-color: var(--color3);
-  padding: .2rem .6rem;
-  border-radius: 20px;
-  color: var(--color1);
-}
-
 .new-task-name,
 .modal-date,
 .modal-priority,
@@ -422,6 +414,32 @@ button{
   pointer-events: none;
 }
 
+.overdue{
+  width:fit-content;
+  background-color: var(--color3);
+  padding: .2rem .6rem;
+  border-radius: 20px;
+  color: var(--color1);
+  box-shadow: var(--box-shadow) 0px 3px 8px;
+}
+
+.overdue-high{
+  background-color: var(--high);
+}
+
+.overdue-medium{
+  background-color: var(--meduim);
+}
+
+.overdue-low{
+  background-color: var(--low);
+}
+
+.task:hover .overdue{
+  box-shadow: none;
+  background-color: var(--color3);
+}
+
 .priority{
   display: flex;
   align-items: center;
@@ -431,9 +449,11 @@ button{
   padding-right: .5rem;
 }
 
+.overdue,
 .priority *{
   pointer-events: none;
 }
+
 
 .high{
   color: var(--high);

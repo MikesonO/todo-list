@@ -76,7 +76,8 @@ export const task = (() => {
 
     if (dateFormat.overdue(taskDate)){
       const overdue = document.createElement("div");
-      overdue.setAttribute("class","overdue");
+      const overdueAttributes = ["overdue", `overdue-${taskPriority}`];
+      overdue.classList.add(...overdueAttributes);
       overdue.textContent = "Overdue";
       date.appendChild(overdue);
       if (done){
