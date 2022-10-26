@@ -51,7 +51,6 @@ export const taskControls = (() => {
         displayModals.displayTaskEditModal(taskList[selectedTask]);
       }
 
-
       //Delete Button
       if (target.className === "task-delete-button") {
         const projectIndex = getProjectIndex(target);
@@ -77,15 +76,11 @@ export const taskControls = (() => {
     let taskTitle = task.querySelector(".task-title").textContent;
     let taskProject = task.dataset.project;
 
-    for (let i = 0; i < projectList.length; i++) {
+    const taskIndex = projectList[getProjectIndex(input)].tasks.findIndex (obj => obj.title == taskTitle && obj.project == taskProject);
 
-      const taskIndex = projectList[i].tasks.findIndex(obj => obj.title == taskTitle && obj.project == taskProject);
-
-      return taskIndex;
+    return taskIndex;
     }
   }
-
-}
 
   return {
     controls
