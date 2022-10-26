@@ -5,6 +5,7 @@ import { dateFormat } from "./dataFormat";
 import { resetInput } from "./helper-functions";
 import { project } from "./projects";
 import { saveToLocalStorage } from "../classes/projectClass";
+import { displayModals } from "../events/display-modal";
 
 
 export const task = (() => {
@@ -124,8 +125,9 @@ export const task = (() => {
     const editModal = document.querySelector("[data-modal='edit']") !== null;
 
     if (editModal) {
-      const editModal = document.querySelector("[data-modal='edit']")
+      const editModal = document.querySelector("[data-modal='edit']");
       editModal.dataset.modal = "new-task";
+      createTaskButton.disabled = false;
     }
 
     taskModalTitle.textContent = "New Task";
@@ -137,21 +139,23 @@ export const task = (() => {
     editTaskButton.style.display = "none";
   }
 
-  const editTask = (task, taskTitle, taskDate, taskPriority, taskDescription) => {
+  const editTask = (projectId, titleName) => {
+    const projectIndex = projectList.findIndex(obj => obj.id == projectId);
+    const taskIndex = projectList[projectIndex].tasks.findIndex (obj => obj.title == titleName && obj.project == projectId);
+    const currentTask = projectList[projectIndex].tasks[taskIndex];
 
-    console.log(taskTitle);
-
-    let projectId = task.project;
-    let currentProject = projectList.find(obj => obj.id === projectId);
-    let currentTaskIndex = currentProject.tasks.findIndex(obj => obj.title === task.title);
+    let title = document.querySelector("[data-tModal-input='title']").value;
+    let date = document.querySelector("[data-tModal-input='date']").value;
+    let priority = document.querySelector("[data-tModal-input='priority']").value;
+    let description = document.querySelector("[data-tModal-input='description']").value;
   
-    let currentTask = currentProject.tasks[currentTaskIndex];
+    currentTask.title = title;
+    currentTask.date = date;
+    currentTask.priority = priority;
+    currentTask.description = description;
 
-    currentTask.title = taskTitle;
-    currentTask.date = taskDate;
-    currentTask.priority = taskPriority;
-    currentTask.description = taskDescription;
     project.renderProject();
+    displayModals.hideTaskModal();
     saveToLocalStorage();
   };
 
@@ -160,7 +164,6 @@ export const task = (() => {
     let findProject = projectList.find(obj => obj.id === project);
     findProject.tasks.forEach((task) => {
       appendTask(task.project, task.title, task.date, task.priority, task.done);
-      saveToLocalStorage();
     })
   };
 

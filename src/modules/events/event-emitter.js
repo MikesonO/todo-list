@@ -78,8 +78,20 @@ export function eventEmitter() {
     }
   });
 
+  //Edit Task Button
+  const editButton = document.querySelector("[data-tModal-btn='edit']");
+  if (editButton) { editButton.addEventListener("click", ()=>{
+    const editTask = document.querySelector(".tModal-bottom");
+    const taskProject = editTask.dataset.project;
+    const taskTitle = editTask.dataset.title;
+    task.editTask(taskProject, taskTitle);
+    task.resetTaskModal();
+  }); }
+
   //Task Controls - View, Edit and Delete
   taskControls.controls();
-  console.log(projectList);
   
+  //Displays Inbox tasks when page is loaded
+  const inbox = document.getElementById("inbox");
+  inbox.click();
 }

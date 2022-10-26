@@ -42,13 +42,12 @@ export const taskControls = (() => {
 
       //Edit Button
       if (target.className === "task-edit-button") {
-        let task = target.parentElement;
-        let taskTitle = task.querySelector(".task-title").textContent;
-        let taskProject = task.dataset.project;
 
-        const selectedTask = taskList.findIndex(obj => obj.title == taskTitle && obj.project == taskProject);
+        const projectIndex = getProjectIndex(target);
+        const taskIndex = getTaskIndex(target);
 
-        displayModals.displayTaskEditModal(taskList[selectedTask]);
+        displayModals.displayTaskEditModal(projectList[projectIndex].tasks[taskIndex]);
+        
       }
 
       //Delete Button

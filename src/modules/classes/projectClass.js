@@ -24,9 +24,7 @@
 
     const saveToLocalStorage = () =>{
       localStorage.setItem("userProjectList", JSON.stringify(projectList));
-      // const createdProjects = localStorage.getItem("userProjectList");
-      //  console.log(createdProjects);
-      // console.log(projectList);
+      localStorage.getItem("userProjectList");
     }
 
   //Project Class
