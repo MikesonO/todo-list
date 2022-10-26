@@ -73,7 +73,18 @@ export const task = (() => {
 
     const date = document.createElement("div");
     date.setAttribute("class", "date");
-    date.textContent = dateFormat.getDate(taskDate);
+
+    if (dateFormat.overdue(taskDate)){
+      const overdue = document.createElement("div");
+      overdue.setAttribute("class","overdue");
+      overdue.textContent = "Overdue";
+      date.appendChild(overdue);
+      if (done){
+        date.textContent = dateFormat.getDate(taskDate);
+      }
+    } else {
+      date.textContent = dateFormat.getDate(taskDate);
+    }
 
     const priority = document.createElement("div");
     const priorityText = document.createElement("p");

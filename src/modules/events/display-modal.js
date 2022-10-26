@@ -1,5 +1,5 @@
 import { capitalizeFirstLetter } from "../functions/helper-functions";
-import { task } from "../functions/tasks";
+import { dateFormat } from "../functions/dataFormat";
 
 export const displayModals = (() => {
   const projectModal = document.querySelector("[data-modal='new-project']");
@@ -53,7 +53,7 @@ export const displayModals = (() => {
     if (!obj.date) {
       taskDate.textContent = "N/A";
     } else {
-      taskDate.textContent = obj.date;
+      taskDate.textContent = dateFormat.getDate(obj.date);
     }
     taskPriority.textContent = capitalizeFirstLetter(obj.priority);
 
@@ -105,9 +105,6 @@ export const displayModals = (() => {
     taskPriorityInput.value = obj.priority;
     taskDescriptionInput.value = obj.description;
   }
-
-
-
 
   return {
     showProjectModal,

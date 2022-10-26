@@ -10,7 +10,6 @@ export const dateFormat = (() => {
 
   const today = new Date();
 
-
   const getDate = (input) => {
     if (!input){
       return 
@@ -37,11 +36,16 @@ export const dateFormat = (() => {
     }
    };
 
+   const overdue = (input) =>{
+    return dateFns.isBefore(dateFns.parseISO(input), dateFns.parseISO(formatDate(today)));
+  }
+
   return{
     today,
     getDate,
     getWeek,
-    formatDate
+    formatDate,
+    overdue
   }
 
 })();

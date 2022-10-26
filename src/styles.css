@@ -59,6 +59,16 @@ footer a{
   font-size: 1.05rem;
   align-items: center;
   gap: 0.25rem;
+  transition: 0.25s;
+}
+
+footer a:hover{
+  scale:1.05;
+  color: var(--color4);
+}
+
+footer a:active{
+  color: var(--color1);
 }
 
 button{
@@ -313,6 +323,14 @@ button{
   gap: 1rem;
 }
 
+.overdue{
+  width:fit-content;
+  background-color: var(--color3);
+  padding: .2rem .6rem;
+  border-radius: 20px;
+  color: var(--color1);
+}
+
 .new-task-name,
 .modal-date,
 .modal-priority,
@@ -455,6 +473,11 @@ button{
 
 
 /* ID SELECTORS */
+
+#logo a{
+  color: var(--color1);
+  text-decoration: none;
+}
 
 #left-panel{
   display: flex;
