@@ -4,6 +4,7 @@ import { projectList } from "../classes/projectClass";
 import { dateFormat } from "./dataFormat";
 import { resetInput } from "./helper-functions";
 import { project } from "./projects";
+import { saveToLocalStorage } from "../classes/projectClass";
 
 
 export const task = (() => {
@@ -19,6 +20,7 @@ export const task = (() => {
 
     const findProject = projectList.find(obj => obj.id === project);
     findProject.tasks.push(newTask);
+    saveToLocalStorage();
   }
 
 
@@ -150,6 +152,7 @@ export const task = (() => {
     currentTask.priority = taskPriority;
     currentTask.description = taskDescription;
     project.renderProject();
+    saveToLocalStorage();
   };
 
 
@@ -157,6 +160,7 @@ export const task = (() => {
     let findProject = projectList.find(obj => obj.id === project);
     findProject.tasks.forEach((task) => {
       appendTask(task.project, task.title, task.date, task.priority, task.done);
+      saveToLocalStorage();
     })
   };
 

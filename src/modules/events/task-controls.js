@@ -12,64 +12,32 @@ export const taskControls = (() => {
 
       //View Button
       if (target.className === "task-view-button") {
-        let task = target.parentElement;
-        let taskTitle = task.querySelector(".task-title").textContent;
-        let taskProject = task.dataset.project;
-
-        const selectedTask = taskList.findIndex(obj => obj.title == taskTitle && obj.project == taskProject);
+        const projectIndex = getProjectIndex(target);
+        const taskIndex = getTaskIndex(target);
 
         displayModals.showTaskViewModal();
-        displayModals.displayTaskViewContent(taskList[selectedTask]);
+        displayModals.displayTaskViewContent(projectList[projectIndex].tasks[taskIndex]);
       }
 
-      if (target.className === "tViewModal-close-btn"){
+      if (target.className === "tViewModal-close-btn") {
         displayModals.hideTaskViewModal();
       }
 
+      //Toggles Task Completion
       if (target.parentElement.classList.contains("task") &&
-      target.className !== "task-view-button" &&
-      target.className !== "task-edit-button" &&
-      target.className !== "task-delete-button"){
+        target.className !== "task-view-button" &&
+        target.className !== "task-edit-button" &&
+        target.className !== "task-delete-button") {
 
+        const parent = target.parentElement;
+        const checkIcon = parent.querySelector(".check");
+        const projectIndex = getProjectIndex(target);
+        const taskIndex = getTaskIndex(target);
 
-        let allTasks = document.querySelectorAll(".task")
+        task.completedTask(projectList[projectIndex].tasks[taskIndex]);
         
-
-        allTasks.forEach(selectedTask => {
-          if(target.parentElement == selectedTask){
-          const currentProject = selectedTask.dataset.project;
-          console.log(currentProject);
-
-          const projectIndex = projectList.findIndex(obj => obj.id == currentProject);
-
-
-          const parent = target.parentElement;
-  
-          const taskTitle = parent.querySelector(".task-title").textContent;
-  
-          const checkIcon = parent.querySelector(".check");
-  
-          
-          const taskIndex = projectList[projectIndex].tasks.findIndex(obj => obj.title == taskTitle);
-  
-          task.completedTask(projectList[projectIndex].tasks[taskIndex]);
-  
-          parent.classList.toggle("checked");  
-          checkIcon.classList.toggle("active");
-          
-          }
-        })
-        // allTasks.forEach(task => {
-        //   const currentProject = task.dataset.project;
-
-        
-        //   const parent = target.parentElement;
-        //   console.log(parent);
-          
-        // })
-        
-       
-
+        parent.classList.toggle("checked");
+        checkIcon.classList.toggle("active");
       }
 
       //Edit Button
@@ -86,32 +54,38 @@ export const taskControls = (() => {
 
       //Delete Button
       if (target.className === "task-delete-button") {
-        let task = target.parentElement;
-        let taskTitle = task.querySelector(".task-title").textContent;
-        console.log(target);
-        console.log(taskTitle);
-
-        for (var i = taskList.length - 1; i >= 0; --i) {
-          if (taskList[i].title == taskTitle) {
-            const getProject = taskList[i].project;
-            const projectIndex = projectList.findIndex(obj => obj.id === getProject);
-            const getProjectTask = projectList[projectIndex].tasks.findIndex(obj => obj.title === taskList[i].title);
-            
-            projectList[projectIndex].tasks.splice(getProjectTask, 1);
-            taskList.splice(i, 1);
-            
-          }
-        }
-
-        task.remove();
-
+        const projectIndex = getProjectIndex(target);
+        const taskIndex = getTaskIndex(target);
+        projectList[projectIndex].tasks.splice(taskIndex, 1);
+        project.renderProject();
       }
 
+    });
 
+  const getProjectIndex = (input) => {
+    let task = input.parentElement;
+    let taskProject = task.dataset.project;
 
-    })
-  };
+    const projectIndex = projectList.findIndex(obj => obj.id == taskProject);
 
+    return projectIndex;
+
+  }
+
+  const getTaskIndex = (input) => {
+    let task = input.parentElement;
+    let taskTitle = task.querySelector(".task-title").textContent;
+    let taskProject = task.dataset.project;
+
+    for (let i = 0; i < projectList.length; i++) {
+
+      const taskIndex = projectList[i].tasks.findIndex(obj => obj.title == taskTitle && obj.project == taskProject);
+
+      return taskIndex;
+    }
+  }
+
+}
 
   return {
     controls

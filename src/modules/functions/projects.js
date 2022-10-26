@@ -1,8 +1,8 @@
-import { camelize, inputCheck,resetInput } from "./helper-functions";
-import { Project, projectList } from "../classes/projectClass";
+import { camelize } from "./helper-functions";
+import { Project, projectList, saveToLocalStorage } from "../classes/projectClass";
 import { defaultProjects } from "./defaultProjects";
 import { task } from "./tasks";
-import { taskList } from "../classes/taskClass";
+
 
 export const project = (() => {
 
@@ -12,6 +12,7 @@ export const project = (() => {
   const createProject = (title, id) =>{
     const newProject = new Project(title, id);
     projectList.push(newProject);
+    saveToLocalStorage();
   }
 
   const addProject = () =>{
@@ -63,6 +64,7 @@ export const project = (() => {
       projects.classList.remove("show");
     } 
     makeActive(inbox);
+    saveToLocalStorage();
   }
 
   //Makes project active upon selection
@@ -103,6 +105,7 @@ export const project = (() => {
       }else if (taskId === "completed"){
         defaultProjects.displayCompletedTasks();
       }
+      saveToLocalStorage();
     }
 
     const clearProjectTasks = () =>{
@@ -128,6 +131,32 @@ export const project = (() => {
         } else return true;
       }
 
+      const displayProject = () =>{
+        projectList.forEach((project, index) => {
+          if(project && index <= 3) return;
+          
+        projects.classList.add("show");
+
+        const newProject = document.createElement("div"); 
+        newProject.setAttribute("class","left-rows");
+        newProject.setAttribute("data","project");
+        newProject.setAttribute("id",`${camelize(project.title)}`);
+    
+        const newProjectName = document.createElement("p");
+        newProjectName.textContent= `${project.title}`;
+    
+        const deleteBtn = document.createElement("button");
+        const deleteIcon = document.createElement("i");
+        let deleteIconClasses = ["delete-icon", "fa-solid", "fa-trash"];
+        deleteIcon.classList.add(...deleteIconClasses);
+        deleteBtn.setAttribute("class","delete-btn")
+        deleteBtn.appendChild(deleteIcon);
+    
+        newProject.append(newProjectName, deleteBtn);
+        projects.appendChild(newProject);
+      })
+      }
+
 
   return{
     addProject,
@@ -136,7 +165,8 @@ export const project = (() => {
     projectList,
     projectValidation,
     clearProjectTasks,
-    renderProject
+    renderProject,
+    displayProject
   }
 
 })();

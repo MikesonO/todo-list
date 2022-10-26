@@ -1,5 +1,5 @@
   //List of Projects
-  let projectList = [{
+  let defaultProjectList = [{
       "title": "Inbox",
       "id": "inbox",
       "tasks": []
@@ -19,6 +19,16 @@
     }
   ];
 
+    //Gets list of projects from local storage or start with default
+    let projectList = localStorage.getItem("userProjectList");   projectList = JSON.parse(projectList || JSON.stringify(defaultProjectList));
+
+    const saveToLocalStorage = () =>{
+      localStorage.setItem("userProjectList", JSON.stringify(projectList));
+      // const createdProjects = localStorage.getItem("userProjectList");
+      //  console.log(createdProjects);
+      // console.log(projectList);
+    }
+
   //Project Class
   class Project {
     constructor(title, id) {
@@ -27,5 +37,6 @@
       this.tasks = [];
     }
   }
+  
 
-  export {projectList, Project}
+  export {projectList, Project, saveToLocalStorage}

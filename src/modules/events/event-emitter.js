@@ -80,6 +80,6 @@ export function eventEmitter() {
 
   //Task Controls - View, Edit and Delete
   taskControls.controls();
-
+  console.log(projectList);
   
 }

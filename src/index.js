@@ -7,5 +7,7 @@ import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 //Modules
 import {eventEmitter} from './modules/events/event-emitter';
+import { project } from './modules/functions/projects'
 
 eventEmitter();
+project.displayProject();
