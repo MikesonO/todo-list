@@ -179,7 +179,6 @@ export const task = (() => {
     })
   };
 
-
   //Project validation to prevent dupiclate Project Titles
   const taskValidation = (input) => {
     const taskProject = taskView.getAttribute("data-selected-project");
@@ -190,7 +189,6 @@ export const task = (() => {
       return false;
     } else return true;
   }
-
 
   const completedTask = (e) =>{
     if (e.done == false){

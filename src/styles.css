@@ -563,7 +563,6 @@ button{
 
 #sort-button.active .arrow{
   transform: rotate(-180deg);
-  
 }
 
 #addProject-btn,
@@ -751,16 +750,11 @@ button{
     width: 100%;
   }
 
-  #title{
-    flex-direction: row-reverse;
-  }
-
   .task{
     display: grid;
     grid-template-columns: auto 1fr auto 1fr;
     position: relative;
   }
-
 
 
   .task:hover{

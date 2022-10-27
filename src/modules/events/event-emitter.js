@@ -6,8 +6,6 @@ import { enterKey } from "../functions/helper-functions";
 import { inputCheck, resetInput } from "../functions/helper-functions";
 import { taskControls } from "./task-controls";
 
-
-
 export function eventEmitter() {
   //Add Project Button
   const addProjectButton = document.querySelector("#addProject-btn");
@@ -87,6 +85,38 @@ export function eventEmitter() {
     task.editTask(taskProject, taskTitle);
     task.resetTaskModal();
   }); }
+
+
+
+  //Sort Tasks
+  const sortButton = document.querySelector("#sort-button");
+  sortButton.addEventListener("click", ()=>{
+  
+    for (let i = 0; i < projectList.length; i++){
+    const tasks = projectList[i].tasks;
+
+    if (sortButton.classList.contains("active")){
+      sortButton.classList.remove("active");
+    tasks.sort(function compare(a, b){
+      var dateA = new Date(a.date);
+      var dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+  } else {
+    sortButton.classList.add("active");
+    tasks.sort(function compare(a, b){
+      var dateA = new Date(a.date);
+      var dateB = new Date(b.date);
+      return dateB - dateA;
+    });
+  }
+}
+
+    project.renderProject();
+
+    
+
+  });
 
   //Task Controls - View, Edit and Delete
   taskControls.controls();

@@ -11,7 +11,6 @@ function resetInput(input) {
   input.value = "";
 }
 
-
 function resetSelectedInput(input) {
   input.selectedIndex = 0;
 }

@@ -1,5 +1,4 @@
 import { projectList } from "../classes/projectClass";
-import { taskList } from "../classes/taskClass";
 import { project } from "../functions/projects";
 import { task } from "../functions/tasks";
 import { displayModals } from "./display-modal";

@@ -68,7 +68,6 @@ export const displayModals = (() => {
     window.setTimeout(() => taskViewModal.style.display = "none", 400);
     taskViewModalBox.classList.remove("active");
     const taskPriorityDiv = document.querySelector(".task-priority");
-    console.log(taskPriorityDiv);
     if (taskPriorityDiv.classList.contains("high")) {
       taskPriorityDiv.classList.remove("high")
     } else if (taskPriorityDiv.classList.contains("medium")) {

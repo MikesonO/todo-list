@@ -18,6 +18,14 @@ export const dateFormat = (() => {
    }};
 
 
+   const getDay = (input) => {
+    if (!input){
+      return 
+    } else {
+     return dateFns.format(new Date(input), "LLL do");
+   }};
+
+
    const formatDate = (input) => {
      return dateFns.format(new Date(input), "yyyy-MM-dd");
    };
@@ -36,14 +44,22 @@ export const dateFormat = (() => {
     }
    };
 
+   const thisWeek = () =>{
+    return dateFns.nextSunday(today);
+   }
+
    const overdue = (input) =>{
     return dateFns.isBefore(dateFns.parseISO(input), dateFns.parseISO(formatDate(today)));
   }
 
+
+
   return{
     today,
     getDate,
+    getDay,
     getWeek,
+    thisWeek,
     formatDate,
     overdue
   }
