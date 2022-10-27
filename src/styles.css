@@ -544,7 +544,7 @@ button{
 }
 
 #title span{
-  font-size: .8rem;
+  font-size: .7rem;
   color: var(--color4);
   margin-left: .5rem;
   font-weight: 500;
@@ -750,10 +750,12 @@ button{
     width: 100%;
   }
 
+  #title{
+    font-size: 1.75rem;
+  }
+
   .task{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: repeat(2, auto);
+    display: flex;
     position: relative;
   }
 
@@ -767,8 +769,7 @@ button{
     justify-self: flex-end;
   }
 
-  .circle,
-  .priority{
+  .circle{
     grid-row: 1 / span 2;
   }
 
@@ -779,7 +780,11 @@ button{
   
   .date{
     justify-self: flex-end;
-    grid-row: 2;
+    font-size: .7rem;
+  }
+
+  .priority{
+    display: none;
   }
 
   .task-view-button{
@@ -800,5 +805,9 @@ button{
     bottom: 0;
     right: 5rem;
     margin-bottom: .5rem;
+  }
+
+  footer a{
+    font-size: .85rem;
   }
   }
