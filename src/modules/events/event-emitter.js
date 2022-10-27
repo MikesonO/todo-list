@@ -91,19 +91,23 @@ export function eventEmitter() {
   //Sort Tasks
   const sortButton = document.querySelector("#sort-button");
   sortButton.addEventListener("click", ()=>{
+
+    if(sortButton.classList.contains("active")){
+      sortButton.classList.remove("active");
+    } else {
+      sortButton.classList.add("active");
+    }
   
     for (let i = 0; i < projectList.length; i++){
     const tasks = projectList[i].tasks;
 
     if (sortButton.classList.contains("active")){
-      sortButton.classList.remove("active");
     tasks.sort(function compare(a, b){
       var dateA = new Date(a.date);
       var dateB = new Date(b.date);
       return dateA - dateB;
     });
   } else {
-    sortButton.classList.add("active");
     tasks.sort(function compare(a, b){
       var dateA = new Date(a.date);
       var dateB = new Date(b.date);
@@ -113,8 +117,6 @@ export function eventEmitter() {
 }
 
     project.renderProject();
-
-    
 
   });
 

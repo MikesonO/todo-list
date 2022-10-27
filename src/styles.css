@@ -544,10 +544,10 @@ button{
 }
 
 #title span{
-  font-size: .75rem;
+  font-size: .8rem;
   color: var(--color4);
   margin-left: .5rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 #sort-button{
@@ -562,7 +562,7 @@ button{
 }
 
 #sort-button.active .arrow{
-  transform: rotate(-180deg);
+  transform: scaleY(-1)
 }
 
 #addProject-btn,
