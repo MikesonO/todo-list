@@ -6,7 +6,7 @@
 </div>
 
 <div align=center>
-  <h2><a href="MikesonO.github.io/todo-list"><strong>View Live Demo</strong></a></h2>
+  <h2><a href="https://www.mikeson.me/todo-list/"><strong>View Live Demo</strong></a></h2>
 
 <img width="1470" alt="Screenshot 2022-10-27 at 16 43 04" src="https://user-images.githubusercontent.com/109072086/198336387-b3d8bc86-b82a-4985-934a-4b8b604f8cfb.png">
 
