@@ -2,6 +2,7 @@ import { camelize } from "./helper-functions";
 import { Project, projectList, saveToLocalStorage } from "../classes/projectClass";
 import { defaultProjects } from "./defaultProjects";
 import { task } from "./tasks";
+import { dateFormat } from "./dataFormat";
 
 
 export const project = (() => {
@@ -97,10 +98,19 @@ export const project = (() => {
       projectTitle.textContent = `${taskName}`;
       task.displayTask(taskId);
       if(taskId === "inbox"){
+         const today = document.createElement("span");
+         today.textContent = dateFormat.getDate(dateFormat.today);
+         projectTitle.appendChild(today);
         defaultProjects.displayAllTasks();
       }else if (taskId === "today"){
+        const today = document.createElement("span");
+        today.textContent = dateFormat.getDate(dateFormat.today);
+        projectTitle.appendChild(today);
         defaultProjects.displayTodaysTasks();
       }else if (taskId === "thisWeek"){
+        const date = document.createElement("span");
+        date.textContent = `${dateFormat.getDay(dateFormat.today)} - ${dateFormat.getDate(dateFormat.thisWeek())}`;
+        projectTitle.appendChild(date);
         defaultProjects.displayThisWeeksTasks();
       }else if (taskId === "completed"){
         defaultProjects.displayCompletedTasks();

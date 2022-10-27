@@ -534,8 +534,36 @@ button{
   margin: 0 auto;
 }
 
+#title-container{
+  display: flex;
+  justify-content: space-between;
+}
+
 #title{
   word-break: break-word;
+}
+
+#title span{
+  font-size: .75rem;
+  color: var(--color4);
+  margin-left: .5rem;
+  font-weight: 400;
+}
+
+#sort-button{
+  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+  margin: auto 0;
+}
+
+#sort-button .arrow{
+  transition: .2s;
+}
+
+#sort-button.active .arrow{
+  transform: rotate(-180deg);
+  
 }
 
 #addProject-btn,
@@ -723,11 +751,16 @@ button{
     width: 100%;
   }
 
+  #title{
+    flex-direction: row-reverse;
+  }
+
   .task{
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: auto 1fr auto 1fr;
     position: relative;
   }
+
 
 
   .task:hover{
