@@ -23,7 +23,7 @@
 body{
   display: grid;
   height: 100vh;
-  grid-template-rows: 80px auto 35px;
+  grid-template-rows: 80px auto 40px;
   font-family: 'Poppins', sans-serif;
   background-color: var(--color3);
 }
@@ -791,6 +791,10 @@ button{
 
   .priority{
     display: none;
+  }
+
+  .task-priority{
+    display: flex;
   }
 
   .task-view-button{
