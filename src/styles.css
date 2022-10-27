@@ -752,7 +752,8 @@ button{
 
   .task{
     display: grid;
-    grid-template-columns: auto 1fr auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(2, auto);
     position: relative;
   }
 
@@ -764,6 +765,21 @@ button{
   .task button{
     position: absolute;
     justify-self: flex-end;
+  }
+
+  .circle,
+  .priority{
+    grid-row: 1 / span 2;
+  }
+
+  .task-title,
+  .date{
+    font-size: .9rem;
+  }
+  
+  .date{
+    justify-self: flex-end;
+    grid-row: 2;
   }
 
   .task-view-button{

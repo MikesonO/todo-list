@@ -126,11 +126,19 @@ export const project = (() => {
       //Removes Add Task Button for Today and This Week
       const removeButton = (currentProject)=>{
         const addTaskButton = document.querySelector("#addTask-btn");
+        const sortButton = document.querySelector("#sort-button");
         if (currentProject == "today" || currentProject == "thisWeek" || currentProject == "completed"){
           addTaskButton.style.display = "none";
+          sortButton.style.display = "none";
         } else {
           addTaskButton.style.display = "flex";
+          sortButton.style.display = "block";
         }
+
+        if (currentProject == "inbox"){
+          sortButton.style.display = "none";
+        }
+
       }
 
       //Project validation to prevent dupiclate Project Titles

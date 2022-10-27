@@ -92,32 +92,30 @@ export function eventEmitter() {
   const sortButton = document.querySelector("#sort-button");
   sortButton.addEventListener("click", ()=>{
 
-    if(sortButton.classList.contains("active")){
-      sortButton.classList.remove("active");
-    } else {
-      sortButton.classList.add("active");
-    }
-  
-    for (let i = 0; i < projectList.length; i++){
-    const tasks = projectList[i].tasks;
+    const getProject = document.querySelector("#task-view");
+    const projectName = getProject.dataset.selectedProject;
+    console.log(projectName);
+
+    const projectIndex = projectList.findIndex(obj => obj.id == projectName)
+    const currentProject = projectList[projectIndex].tasks;
 
     if (sortButton.classList.contains("active")){
-    tasks.sort(function compare(a, b){
+      sortButton.classList.remove("active");
+      currentProject.sort(function compare(a, b){
       var dateA = new Date(a.date);
       var dateB = new Date(b.date);
       return dateA - dateB;
     });
   } else {
-    tasks.sort(function compare(a, b){
+      sortButton.classList.add("active");
+      currentProject.sort(function compare(a, b){
       var dateA = new Date(a.date);
       var dateB = new Date(b.date);
       return dateB - dateA;
     });
-  }
 }
-
-    project.renderProject();
-
+   project.renderProject();
+   
   });
 
   //Task Controls - View, Edit and Delete
