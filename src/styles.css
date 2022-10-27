@@ -50,6 +50,7 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 footer a{
@@ -60,10 +61,15 @@ footer a{
   align-items: center;
   gap: 0.25rem;
   transition: 0.25s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
+  margin: 0;
 }
 
 footer a:hover{
-  scale:1.05;
+  font-size: 1.1rem;
   color: var(--color4);
 }
 
@@ -810,4 +816,9 @@ button{
   footer a{
     font-size: .85rem;
   }
+  
+  footer a:hover{
+    font-size: .9rem;
+  }
+
   }
